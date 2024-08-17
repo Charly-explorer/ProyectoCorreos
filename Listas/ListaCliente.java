@@ -4,8 +4,9 @@
  */
 package Listas;
 
+import Clientes.Cliente;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 public class ListaCliente {
     
@@ -33,7 +34,7 @@ public class ListaCliente {
     }
 
     
-    public List<ArrayList> getListaClientes() {
+    public ArrayList<Cliente> getListaClientes() {
         return this.cliente;  
     }
 

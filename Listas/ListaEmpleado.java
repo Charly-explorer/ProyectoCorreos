@@ -24,7 +24,7 @@ public class ListaEmpleado {
      for (Empleado empleado: empleados) {
         if (empleado.getId() == id) {
             empleado.setTelefono(empleado.getTelefono()); // Da el error xq lo hereda del de thy
-            empleado.setCorreo(empleado.getCorreo());  // Da el error xq lo hereda del de thy
+            empleado.setCorreo(empleado.setCorreo());  // Da el error xq lo hereda del de thy
             empleado.setPuesto(empleado.getPuesto());
             empleado.setSalario(empleado.getSalario());
                return true;
