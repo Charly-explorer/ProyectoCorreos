@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Personas;
 
 import java.time.LocalDate;
 
 
-/**
- *
- * @author user
- */
-public class Empleado extends Cliente {
+public class Empleado extends PersonaDetallada {
     private String puesto;
     private double salario;
 
@@ -31,26 +24,15 @@ public class Empleado extends Cliente {
         this.salario = salario;
     }
 
-    public Empleado(String puesto, double salario, int id, String nombre, LocalDate fechaNacimiento, int telefono, String correo, int edad) {
-        super(id, nombre, fechaNacimiento, telefono, correo, edad);
+    public Empleado(String puesto, double salario, int telefono, String correo, LocalDate fechaNacimiento, String nombre, int cedula) {
+        super(telefono, correo, fechaNacimiento, nombre, cedula);
         this.puesto = puesto;
         this.salario = salario;
-    }
-
-    public Empleado(String puesto, double salario) {
-        this.puesto = puesto;
-        this.salario = salario;
-    }
-        
-    public Empleado() {
-        this("",0);
     }
 
     @Override
     public String toString() {
         return "Empleado{" + "puesto=" + puesto + ", salario=" + salario + '}';
     }
-
-    
-    
+   
 }
