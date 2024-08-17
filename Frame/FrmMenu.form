@@ -61,9 +61,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel3" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAdmiEmpleados" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRutas" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEnvios" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAdmiPaquetes" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,7 +88,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="352" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="btnAdmiPaquetes" min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="btnAdmiEmpleados" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="btnRutas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnEnvios" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,7 +107,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="66" type="rgb"/>
+              <Color blue="ff" green="66" red="99" type="rgb"/>
             </Property>
           </Properties>
 
@@ -142,6 +167,40 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gestionar Clientes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAdmiPaquetes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Administrar Paquetes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdmiPaquetesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAdmiEmpleados">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Administrar Empleados"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdmiEmpleadosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRutas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gestionar Rutas"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnEnvios">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gestionar Envios"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

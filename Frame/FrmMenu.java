@@ -31,6 +31,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        btnAdmiPaquetes = new javax.swing.JButton();
+        btnAdmiEmpleados = new javax.swing.JButton();
+        btnRutas = new javax.swing.JButton();
+        btnEnvios = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -39,7 +44,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 102, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -75,15 +80,51 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Gestionar Clientes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnAdmiPaquetes.setText("Administrar Paquetes");
+        btnAdmiPaquetes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdmiPaquetesActionPerformed(evt);
+            }
+        });
+
+        btnAdmiEmpleados.setText("Administrar Empleados");
+        btnAdmiEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdmiEmpleadosActionPerformed(evt);
+            }
+        });
+
+        btnRutas.setText("Gestionar Rutas");
+
+        btnEnvios.setText("Gestionar Envios");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(btnAdmiEmpleados)
+                            .addComponent(btnRutas)
+                            .addComponent(btnEnvios)
+                            .addComponent(btnAdmiPaquetes))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +132,17 @@ public class FrmMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26)
+                .addComponent(btnAdmiPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnAdmiEmpleados)
+                .addGap(34, 34, 34)
+                .addComponent(btnRutas)
+                .addGap(48, 48, 48)
+                .addComponent(btnEnvios)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,6 +162,18 @@ public class FrmMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnAdmiEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmiEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdmiEmpleadosActionPerformed
+
+    private void btnAdmiPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmiPaquetesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdmiPaquetesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +211,11 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdmiEmpleados;
+    private javax.swing.JButton btnAdmiPaquetes;
+    private javax.swing.JButton btnEnvios;
+    private javax.swing.JButton btnRutas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

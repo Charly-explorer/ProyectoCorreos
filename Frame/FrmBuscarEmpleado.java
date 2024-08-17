@@ -35,6 +35,8 @@ public class FrmBuscarEmpleado extends javax.swing.JInternalFrame {
         TxtNombre = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));

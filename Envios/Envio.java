@@ -1,11 +1,13 @@
 package Envios;
 
+import Paquetes.Paquete;
+import Personas.Cliente;
 import java.time.LocalDate;
 
 public class Envio {
-    //private Cliente cliente;
-    //private Paquete paquete;
-    //private Ruta ruta;
+    private Cliente cliente;
+    private Paquete paquete;
+//    private Ruta ruta;
 
     private LocalDate fechaEnvio;
     private LocalDate fechaEntrega;

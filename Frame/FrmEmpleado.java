@@ -29,6 +29,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -57,6 +58,9 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Registro Empleados.");
 
+        jButton1.setBackground(new java.awt.Color(153, 102, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Imagen de WhatsApp 2024-08-17 a las 00.07.02_66613e41.jpg"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -64,14 +68,16 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
@@ -195,7 +201,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(92, 92, 92)
                 .addComponent(btnEliminar)
@@ -208,7 +214,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnEliminar))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,6 +271,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtTelefono;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
