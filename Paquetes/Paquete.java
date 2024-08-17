@@ -5,8 +5,8 @@
 package Paquetes;
 
 import static Paquetes.EnumEstadoPaquete.Almacenado;
-import Empleados.Empleado;
 import Personas.Cliente;
+import Personas.Empleado;
 /**
  *
  * @author emman
