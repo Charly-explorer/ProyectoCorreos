@@ -42,6 +42,8 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         btnAgregar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));

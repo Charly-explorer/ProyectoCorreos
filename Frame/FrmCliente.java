@@ -125,7 +125,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                                 .addComponent(TxtCedula, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 89, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
                         .addGap(79, 79, 79)
                         .addComponent(btnBuscar)
