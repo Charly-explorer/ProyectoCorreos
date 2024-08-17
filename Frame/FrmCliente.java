@@ -71,7 +71,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jLabel4.setText("Fecha Nacimiento");
@@ -125,9 +125,9 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                                 .addComponent(TxtCedula, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 76, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
-                        .addGap(79, 79, 79)
+                        .addGap(44, 44, 44)
                         .addComponent(btnBuscar)
                         .addGap(67, 67, 67))))
         );
