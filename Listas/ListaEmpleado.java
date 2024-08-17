@@ -23,8 +23,8 @@ public class ListaEmpleado {
      public boolean actualizarEmpleadoPorId(int id) {
      for (Empleado empleado: empleados) {
         if (empleado.getId() == id) {
-            empleado.setTelefono(empleado.getTelefono()); // Da el error xq lo hereda del de thy
-            empleado.setCorreo(empleado.setCorreo());  // Da el error xq lo hereda del de thy
+            empleado.setTelefono(empleado.getTelefono()); 
+            empleado.setCorreo(empleado.getCorreo());
             empleado.setPuesto(empleado.getPuesto());
             empleado.setSalario(empleado.getSalario());
                return true;
