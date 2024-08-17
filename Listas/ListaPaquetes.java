@@ -14,23 +14,36 @@ import java.util.HashMap;
  */
 public class ListaPaquetes {
     
-    HashMap<Integer, Paquete> paquetes = new HashMap<>();
+    private HashMap<Integer, Paquete> listaPaquetes;
     
-    public void agregarPaquete(Paquete paquete){
-        paquetes.put(paquete.getCodigo(), paquete);
+    private static ListaPaquetes instance = new ListaPaquetes();
+    
+    public ListaPaquetes(){
+        listaPaquetes = new HashMap<>();
     }
     
-    public void eliminarPaquete(Paquete paquete) throws Exception{
+    public static ListaPaquetes getInstance(){
+        if (instance == null) {
+            instance = new ListaPaquetes();
+        }
+        return instance;
+    }
+    
+    public void agregar(Paquete paquete){
+        listaPaquetes.put(paquete.getCodigo(), paquete);
+    }
+    
+    public void eliminar(Paquete paquete) throws Exception{
         if(paquete.getEstado()== Almacenado){
-            paquetes.remove(paquete.getCodigo(), paquete);
+            listaPaquetes.remove(paquete.getCodigo(), paquete);
         }else{
             throw new Exception("No existe el paquete");
         }
     }
     
-    public Paquete buscarPaquete(Paquete paquete){
+    public Paquete buscar(Paquete paquete){
         
-        return paquetes.get(paquete.getCodigo());
+        return listaPaquetes.get(paquete.getCodigo());
         
     }
 }

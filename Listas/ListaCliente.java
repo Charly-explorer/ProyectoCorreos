@@ -10,23 +10,34 @@ import java.util.ArrayList;
 
 public class ListaCliente {
     
-    private ArrayList<Cliente> cliente = new ArrayList<>();
+    private ArrayList<Cliente> listaCliente;
+    
+    private static ListaCliente instance = new ListaCliente();
   
-
+    public ListaCliente(){
+        listaCliente = new ArrayList<>();
+    }
+    
+    public static ListaCliente getInstance(){
+        if (instance == null) {
+            instance = new ListaCliente();
+        }
+        return instance;
+    }
    
     public void agregar(Cliente cliente) {
-        this.cliente.add(cliente);
+        this.listaCliente.add(cliente);
     }
 
   
-    public void eliminarCliente(Cliente cliente) {
-        this.cliente.remove(cliente);
+    public void eliminar(Cliente cliente) {
+        this.listaCliente.remove(cliente);
     }
 
    
-    public Cliente buscarEmpleado(int id) {
-        for (Cliente cliente : this.cliente) {
-            if (cliente.getId() == id) {  
+    public Cliente buscar(int id) {
+        for (Cliente cliente : this.listaCliente) {
+            if (cliente.getCedula() == id) {  
                 return cliente; 
             }
         }
@@ -35,12 +46,12 @@ public class ListaCliente {
 
     
     public ArrayList<Cliente> getListaClientes() {
-        return this.cliente;  
+        return this.listaCliente;  
     }
 
   
     public boolean actualizar(int id, int telefono, String nuevoCorreo) {
-        Cliente cliente = buscarEmpleado(id); 
+        Cliente cliente = buscar(id); 
         if (cliente != null) {
             cliente.setTelefono(telefono);  
             cliente.setCorreo(nuevoCorreo);  
@@ -48,5 +59,5 @@ public class ListaCliente {
             return true;
         }
         return false;  
-    }
+    }   
 }

@@ -1,51 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Listas;
 
 import Personas.Empleado;
 import java.util.ArrayList;
 
-
-
-/**
- *
- * @author user
- */
 public class ListaEmpleado {
-     ArrayList<Empleado> empleados = new ArrayList<>();
 
-     public void agregarEmpleado(Empleado empleado) {
-        empleados.add(empleado);
+    private ArrayList<Empleado> listaEmpleados;
+
+    private static ListaEmpleado instance = new ListaEmpleado();
+
+    public ListaEmpleado() {
+        listaEmpleados = new ArrayList<>();
     }
-     
-     public boolean actualizarEmpleadoPorId(int id) {
-     for (Empleado empleado: empleados) {
-        if (empleado.getId() == id) {
-            empleado.setTelefono(empleado.getTelefono()); 
-            empleado.setCorreo(empleado.getCorreo());
-            empleado.setPuesto(empleado.getPuesto());
-            empleado.setSalario(empleado.getSalario());
-               return true;
-               }
+
+    public static ListaEmpleado getInstance() {
+        if (instance == null) {
+            instance = new ListaEmpleado();
         }
-            return false;
+        return instance;
     }
-     
-     public void eliminarEmpleado(Empleado empleado) {
-        empleados.remove(empleado);
+
+    public void agregarEmpleado(Empleado empleado) {
+        listaEmpleados.add(empleado);
     }
-     
-     public Empleado buscarEmpleado(int id) {
-        for (Empleado empleado : empleados) {
-        if (empleado.getId() == id) {
-            return empleado;
+
+    public boolean actualizarEmpleadoPorId(int id) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getCedula() == id) {
+                empleado.setTelefono(empleado.getTelefono());
+                empleado.setCorreo(empleado.getCorreo());
+                empleado.setPuesto(empleado.getPuesto());
+                empleado.setSalario(empleado.getSalario());
+                return true;
+            }
         }
+        return false;
     }
+
+    public void eliminarEmpleado(Empleado empleado) {
+        listaEmpleados.remove(empleado);
+    }
+
+    public Empleado buscarEmpleado(int id) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getCedula() == id) {
+                return empleado;
+            }
+        }
         return null;
     }
-     
-     
-     
-    }
+
+}
