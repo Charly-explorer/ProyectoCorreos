@@ -2,13 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Empleados;
+package Personas;
+
+import java.time.LocalDate;
+
 
 /**
  *
  * @author user
  */
-public class Empleado {
+public class Empleado extends Cliente {
     private String puesto;
     private double salario;
 
@@ -28,22 +31,26 @@ public class Empleado {
         this.salario = salario;
     }
 
-    public Empleado(String puesto, double salario) {
+    public Empleado(String puesto, double salario, int id, String nombre, LocalDate fechaNacimiento, int telefono, String correo, int edad) {
+        super(id, nombre, fechaNacimiento, telefono, correo, edad);
         this.puesto = puesto;
         this.salario = salario;
     }
 
+    public Empleado(String puesto, double salario) {
+        this.puesto = puesto;
+        this.salario = salario;
+    }
+        
     public Empleado() {
         this("",0);
     }
 
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override
+    public String toString() {
+        return "Empleado{" + "puesto=" + puesto + ", salario=" + salario + '}';
     }
 
-    public int gitId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     
 }

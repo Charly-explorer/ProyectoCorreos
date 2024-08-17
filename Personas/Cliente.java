@@ -1,12 +1,12 @@
-package Clientes;
-import Empleados.Empleado;
+package Personas;
+
 import java.time.LocalDate;
 
 /**
  *
  * @author thyfa
  */
-public class Cliente extends Empleado{
+public class Cliente{
     private int id;
     private String nombre;
     private LocalDate fechaNacimiento;
@@ -31,10 +31,17 @@ public class Cliente extends Empleado{
         return edad;
     }
 
+    public int getTelefono() {
+        return telefono;
+    }
+
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
     
 
     public void setCorreo(String correo) {

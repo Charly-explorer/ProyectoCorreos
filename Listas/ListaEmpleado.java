@@ -4,7 +4,7 @@
  */
 package Listas;
 
-import Empleados.Empleado;
+import Personas.Empleado;
 import java.util.ArrayList;
 
 
@@ -39,7 +39,7 @@ public class ListaEmpleado {
      
      public Empleado buscarEmpleado(int id) {
         for (Empleado empleado : empleados) {
-        if (empleado.gitId() == id) {
+        if (empleado.getId() == id) {
             return empleado;
         }
     }

@@ -4,7 +4,7 @@
  */
 package Listas;
 
-import Clientes.Cliente;
+import Personas.Cliente;
 import java.util.ArrayList;
 //import java.util.List;
 
@@ -39,13 +39,12 @@ public class ListaCliente {
     }
 
   
-    public boolean actualizar(int id, int telefono, String nuevoCorreo, String nuevoPuesto, double nuevoSalario) {
+    public boolean actualizar(int id, int telefono, String nuevoCorreo) {
         Cliente cliente = buscarEmpleado(id); 
         if (cliente != null) {
             cliente.setTelefono(telefono);  
             cliente.setCorreo(nuevoCorreo);  
-            cliente.setPuesto(nuevoPuesto);  
-            cliente.setSalario(nuevoSalario);  
+ 
             return true;
         }
         return false;  

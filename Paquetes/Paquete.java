@@ -5,7 +5,8 @@
 package Paquetes;
 
 import static Paquetes.EnumEstadoPaquete.Almacenado;
-
+import Empleados.Empleado;
+import Personas.Cliente;
 /**
  *
  * @author emman
@@ -73,7 +74,7 @@ public class Paquete {
     }
 
     public Paquete() {
-        this(0,"",0,Empleado(),Cliente());
+        this(0,"",0,new Empleado(),new Cliente());
     }   
     
 }
