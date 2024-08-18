@@ -4,7 +4,6 @@
  */
 package Frame;
 
-
 import Listas.ListaRuta;
 import Rutas.Ruta;
 import java.util.HashSet;
@@ -15,14 +14,16 @@ import javax.swing.JOptionPane;
  * @author thyfa
  */
 public class FrmRutas extends javax.swing.JInternalFrame {
-      ListaRuta Rutas;
-      Ruta ruta;
+
+    ListaRuta Rutas;
+    Ruta ruta;
+
     /**
      * Creates new form FrmRutas
      */
     public FrmRutas() {
         initComponents();
-         Rutas = ListaRuta.getInstance();
+        Rutas = ListaRuta.getInstance();
     }
 
     /**
@@ -45,13 +46,11 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TxtRuta = new javax.swing.JTextField();
         TxtNombre = new javax.swing.JTextField();
         TxtDescripcion = new javax.swing.JTextField();
         TxtDestinos = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         TxtCodigo = new javax.swing.JTextField();
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));
@@ -103,7 +102,7 @@ public class FrmRutas extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -143,19 +142,10 @@ public class FrmRutas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
-        jLabel7.setText("Ruta");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,11 +155,15 @@ public class FrmRutas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,27 +173,23 @@ public class FrmRutas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(16, 16, 16)
                 .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel5)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(TxtDestinos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,35 +211,32 @@ public class FrmRutas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-String codigo = TxtCodigo.getText();    
-String ruta = TxtRuta.getText();
-String nombre = TxtNombre.getText();
-String descripcion = TxtDescripcion.getText();
-String listaDestino = TxtDestinos.getText();
+        int codigo = Integer.parseInt(TxtCodigo.getText());
+        String nombre = TxtNombre.getText();
+        String descripcion = TxtDescripcion.getText();
+        String listaDestino = TxtDestinos.getText();
+        HashSet<String> destinos = new HashSet<>();
+        destinos.add(listaDestino);
 
-HashSet<String> destinos = new HashSet<>();
-destinos.add(listaDestino);
+        ruta = new Ruta(codigo,  nombre, descripcion, destinos);
+        Rutas.agregar(ruta);
 
-ruta = new Ruta(codigo, ruta, nombre, descripcion, destinos);
-Rutas.agregar(ruta);
+        JOptionPane.showMessageDialog(this, "Ruta agregada:\n"
+                + "Ruta: " + ruta + "\n"
+                + "Nombre: " + nombre + "\n"
+                + "Descripción: " + descripcion + "\n"
+                + "Destino: " + listaDestino);
 
-JOptionPane.showMessageDialog(this, "Ruta agregada:\n" +
-    "Ruta: " + ruta + "\n" +
-    "Nombre: " + nombre + "\n" +
-    "Descripción: " + descripcion + "\n" +
-    "Destino: " + listaDestino);
+        TxtNombre.setText("");
+        TxtDescripcion.setText("");
+        TxtDestinos.setText("");
 
-TxtRuta.setText("");
-TxtNombre.setText("");
-TxtDescripcion.setText("");
-TxtDestinos.setText("");
-              
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       FrmBuscarRutas newBuscarRutas= new FrmBuscarRutas(null,true);
+        FrmBuscarRutas newBuscarRutas = new FrmBuscarRutas(null, true);
         newBuscarRutas.setLocationRelativeTo(null);
-        newBuscarRutas.setVisible(true); 
+        newBuscarRutas.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
 
@@ -258,7 +245,6 @@ TxtDestinos.setText("");
     private javax.swing.JTextField TxtDescripcion;
     private javax.swing.JTextField TxtDestinos;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtRuta;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton jButton1;
@@ -268,7 +254,6 @@ TxtDestinos.setText("");
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

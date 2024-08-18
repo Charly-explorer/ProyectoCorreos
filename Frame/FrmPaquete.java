@@ -72,7 +72,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -120,7 +120,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         });
 
         TxtRemitente.setEditable(true);
-        TxtRemitente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TxtRemitente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Cedula");
@@ -199,7 +199,10 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +225,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     double peso = Double.parseDouble(TxtPeso.getText());
     String nombre = TxtNombreDestinatario.getText ();
     int cedula = Integer.parseInt(TxtCedula.getText());
-    Remitente remitente = TxtRemitente.getSelectedItem();
+    Remitente remitente = (Remitente) TxtRemitente.getSelectedItem();
     Destinatario destinatario = new Destinatario(nombre,cedula);
  
     paquete = new Paquete(descripcion,codigo,peso,remitente,destinatario);
