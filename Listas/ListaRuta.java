@@ -4,6 +4,7 @@
  */
 package Listas;
 
+import Personas.Empleado;
 import Rutas.Ruta;
 import java.util.ArrayList;
 
@@ -43,6 +44,24 @@ public class ListaRuta {
             }
         }
         return null;
+    }
+
+    public ArrayList<Ruta> Filtrar(String filtro) {
+
+        if (filtro.equals("")) {
+            return listaRutas;
+        }
+        ArrayList<Ruta> ruta = new ArrayList<>();
+
+        for (Ruta objeto : listaRutas) {
+            if (objeto == null) {
+                continue;
+            }
+            if (objeto.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
+                ruta.add(objeto);
+            }
+        }
+        return ruta;
     }
 
 }

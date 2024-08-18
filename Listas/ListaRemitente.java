@@ -4,8 +4,8 @@
  */
 package Listas;
 
-
 import Personas.Remitente;
+import Rutas.Ruta;
 import java.util.ArrayList;
 
 /**
@@ -44,6 +44,24 @@ public class ListaRemitente {
             }
         }
         return null;
+    }
+
+    public ArrayList<Remitente> Filtrar(String filtro) {
+
+        if (filtro.equals("")) {
+            return listaRemitentes;
+        }
+        ArrayList<Remitente> remitente = new ArrayList<>();
+
+        for (Remitente objeto : listaRemitentes) {
+            if (objeto == null) {
+                continue;
+            }
+            if (objeto.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
+                remitente.add(objeto);
+            }
+        }
+        return remitente;
     }
 
 }

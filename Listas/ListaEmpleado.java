@@ -1,5 +1,6 @@
 package Listas;
 
+import Personas.Cliente;
 import Personas.Empleado;
 import java.util.ArrayList;
 
@@ -48,6 +49,24 @@ public class ListaEmpleado {
             }
         }
         return null;
+    }
+    
+        public ArrayList<Empleado> Filtrar(String filtro) {
+
+        if (filtro.equals("")) {
+            return listaEmpleados;
+        }
+        ArrayList<Empleado> empleado = new ArrayList<>();
+
+        for (Empleado objeto : listaEmpleados) {
+            if (objeto == null) {
+                continue;
+            }
+            if (objeto.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
+                empleado.add(objeto);
+            }
+        }
+        return empleado;
     }
 
 }

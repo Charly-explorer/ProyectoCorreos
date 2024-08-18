@@ -69,7 +69,7 @@ public class ListaCliente {
     }
 
     public ArrayList<Cliente> Filtrar(String filtro) {
-//        ListaCliente Clientes = ListaCliente.getInstance();
+
         if (filtro.equals("")) {
             return listaCliente;
         }
