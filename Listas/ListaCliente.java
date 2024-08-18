@@ -29,8 +29,19 @@ public class ListaCliente {
         this.listaCliente.add(cliente);
     }
 
-    public void eliminar(Cliente cliente) {
-        this.listaCliente.remove(cliente);
+    public void eliminar(int cedula) {
+        Cliente clienteAEliminar = null;
+
+        for (Cliente cliente : this.listaCliente) {
+            if (cliente.getCedula() == cedula) {
+                clienteAEliminar = cliente;
+                break;
+            }
+        }
+        
+        if (clienteAEliminar != null) {
+            this.listaCliente.remove(clienteAEliminar);
+        }
     }
 
     public Cliente buscar(int id) {
@@ -58,18 +69,18 @@ public class ListaCliente {
     }
 
     public ArrayList<Cliente> Filtrar(String filtro) {
-        ListaCliente Clientes = ListaCliente.getInstance();
+//        ListaCliente Clientes = ListaCliente.getInstance();
         if (filtro.equals("")) {
-            return Clientes.getListaClientes();
+            return listaCliente;
         }
         ArrayList<Cliente> cliente = new ArrayList<>();
-        int cont = 0;
-        for (Cliente objeto : Clientes.getListaClientes()) {
+
+        for (Cliente objeto : listaCliente) {
             if (objeto == null) {
                 continue;
             }
             if (objeto.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
-                Clientes.getListaClientes().set(cont++, objeto);
+                cliente.add(objeto);
             }
         }
         return cliente;
