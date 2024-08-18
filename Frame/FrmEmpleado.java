@@ -273,7 +273,9 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
-       
+      FrmBuscarEmpleado newBuscarEmpleado= new FrmBuscarEmpleado(null,true);
+        newBuscarEmpleado.setLocationRelativeTo(null);
+        newBuscarEmpleado.setVisible(true); 
 
     }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
  
