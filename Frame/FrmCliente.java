@@ -4,15 +4,23 @@
  */
 package Frame;
 
+import Personas.Cliente;
+import Listas.ListaCliente;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thyfa
  */
 public class FrmCliente extends javax.swing.JInternalFrame {
-
-   
+    ListaCliente Clientes;
+    Cliente cliente;
+    
     public FrmCliente() {
         initComponents();
+        Clientes = ListaCliente.getInstance();
     }
 
     /**
@@ -201,7 +209,33 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCedulaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+   // Recoger los datos de los campos
+    int cedula = Integer.parseInt(TxtCedula.getText());
+    String nombre = TxtNombre.getText();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+    LocalDate fechaNacimiento = LocalDate.parse(TxtFechaNacimiento.getText(),formatter);
+    int telefono = Integer.parseInt(TxtTelefono.getText());
+    String correo = TxtCorreo.getText();
+    
+    cliente = new Cliente(telefono,correo,fechaNacimiento,nombre,cedula);
+    Clientes.agregar(cliente);
+    
+    // Mostrar un mensaje de confirmación con los datos del cliente
+    JOptionPane.showMessageDialog(this, "Cliente agregado:\n" +
+        "Cédula: " + cedula + "\n" +
+        "Nombre: " + nombre + "\n" +
+        "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+        "Teléfono: " + telefono + "\n" +
+        "Correo: " + correo);
+    
+    
+
+    // Limpiar los campos después de agregar el cliente
+    TxtCedula.setText("");
+    TxtNombre.setText("");
+    TxtFechaNacimiento.setText("");
+    TxtTelefono.setText("");
+    TxtCorreo.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
