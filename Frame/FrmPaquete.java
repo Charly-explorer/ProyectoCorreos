@@ -224,7 +224,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     int cedula = Integer.parseInt(TxtCedula.getText());
     Remitente remitente = TxtRemitente.getSelectedItem();
     Destinatario destinatario = new Destinatario(nombre,cedula);
-
+ 
     paquete = new Paquete(descripcion,codigo,peso,remitente,destinatario);
     Paquetes.agregar(paquete);
 
