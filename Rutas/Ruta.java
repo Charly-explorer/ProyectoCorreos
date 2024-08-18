@@ -4,7 +4,7 @@
  */
 package Rutas;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Ruta {
     private int codigo ;
     private String nombre;
     private String descripcion;
-    private ArrayList<String> listaDestinos;
+    private HashSet<String> listaDestinos;
 
     public int getCodigo() {
         return codigo;
@@ -34,15 +34,15 @@ public class Ruta {
     }
     
 
-    public ArrayList<String> getListaDestinos() {
+    public HashSet<String> getListaDestinos() {
         return listaDestinos;
     }
 
-    public void setListaDestinos(ArrayList<String> listaDestinos) {
+    public void setListaDestinos(HashSet<String> listaDestinos) {
         this.listaDestinos = listaDestinos;
     }
 
-    public Ruta(int codigo, String nombre, String descripcion, ArrayList<String> listaDestinos) {
+    public Ruta(int codigo, String nombre, String descripcion, HashSet<String> listaDestinos) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -50,7 +50,7 @@ public class Ruta {
     }
 
     public Ruta() {
-        this(0,"","",new ArrayList<>());
+        this(0,"","",new HashSet<>());
     }
     
     public void agregarDestino(String destino){

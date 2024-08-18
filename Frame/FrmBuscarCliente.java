@@ -4,14 +4,46 @@
  */
 package Frame;
 
+import Listas.ListaCliente;
+import Personas.Cliente;
+import javax.swing.table.DefaultTableModel;
+
 public class FrmBuscarCliente extends javax.swing.JDialog {
 
+    ListaCliente Clientes = ListaCliente.getInstance();
+
     /**
-     
-Creates new form BuscarClientes*/
-  public FrmBuscarCliente(java.awt.Frame parent, boolean modal) {
-      super(parent, modal);
-      initComponents();}
+     *
+     * Creates new form BuscarClientes
+     */
+    public FrmBuscarCliente(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        cargar();
+    }
+
+    public void setLista(ListaCliente clientes) {
+        this.Clientes = clientes;
+        this.cargar();
+    }
+
+    private void cargar() {
+        DefaultTableModel model
+                = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        for (Cliente objeto : Clientes.Filtrar(this.TxtNombre.getText())) {
+            if (objeto == null) {
+                continue;
+            }
+            Object datos[] = {objeto.getCedula(),
+                objeto.getNombre(),
+                objeto.getTelefono(),
+                objeto.getCorreo(),
+                2024 - objeto.getFechaNacimiento().getYear()};
+            model.addRow(datos);
+        }
+        jTable1.setModel(model);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,6 +128,11 @@ Creates new form BuscarClientes*/
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreActionPerformed(evt);
+            }
+        });
+        TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtNombreKeyReleased(evt);
             }
         });
 
@@ -209,7 +246,7 @@ Creates new form BuscarClientes*/
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
-    
+
     }//GEN-LAST:event_TxtNombreActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -217,9 +254,13 @@ Creates new form BuscarClientes*/
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-      this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-  public static void main(String args[]) {
+
+    private void TxtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyReleased
+        this.cargar();
+    }//GEN-LAST:event_TxtNombreKeyReleased
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -235,8 +276,8 @@ Creates new form BuscarClientes*/
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      //</editor-fold>
-      
+        //</editor-fold>
+
         //</editor-fold>
 
         /* Create and display the dialog */

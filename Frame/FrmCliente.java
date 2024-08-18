@@ -15,12 +15,11 @@ import javax.swing.JOptionPane;
  * @author thyfa
  */
 public class FrmCliente extends javax.swing.JInternalFrame {
-    ListaCliente Clientes;
+    ListaCliente Clientes = ListaCliente.getInstance();
     Cliente cliente;
     
     public FrmCliente() {
-        initComponents();
-        Clientes = ListaCliente.getInstance();
+        initComponents();       
     }
 
     /**
@@ -236,12 +235,14 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     TxtFechaNacimiento.setText("");
     TxtTelefono.setText("");
     TxtCorreo.setText("");
+    
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         FrmBuscarCliente newBuscarCliente= new FrmBuscarCliente(null,true);
         newBuscarCliente.setLocationRelativeTo(null);
         newBuscarCliente.setVisible(true);
+        
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 

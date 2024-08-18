@@ -4,12 +4,45 @@
  */
 package Listas;
 
+import Personas.Destinatario;
+import java.util.HashSet;
+
 /**
  *
  * @author emman
  */
 public class ListaDestinos {
-    
-    
-    
+
+    private HashSet<String> listaDestinos;
+
+    private static ListaDestinos instance = new ListaDestinos();
+
+    public ListaDestinos() {
+        listaDestinos = new HashSet<>();
+    }
+
+    public static ListaDestinos getInstance() {
+        if (instance == null) {
+            instance = new ListaDestinos();
+        }
+        return instance;
+    }
+
+    public void agregar(String txt) {
+        listaDestinos.add(txt);
+    }
+
+    public void eliminar(String txt) {
+        listaDestinos.remove(txt);
+    }
+
+    public String buscar(String txt) {
+        for (String destino : this.listaDestinos) {
+            if (destino == txt) {
+                return destino;
+            }
+        }
+        return null;
+    }
+
 }
