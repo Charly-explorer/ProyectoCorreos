@@ -4,16 +4,23 @@
  */
 package Frame;
 
+import Listas.ListaEmpleado;
+import Personas.Empleado;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thyfa
  */
 public class FrmEmpleado extends javax.swing.JInternalFrame {
-
+      ListaEmpleado Empleados;
+      Empleado empleado;
    
     public FrmEmpleado() {
-        
         initComponents();
+        Empleados = ListaEmpleado.getInstance();
     }
 
     /**
@@ -269,7 +276,45 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCorreoActionPerformed
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        // TODO add your handling code here:
+      // Recoger los datos de los campos
+    int cedula = Integer.parseInt(TxtCedula.getText());
+    String nombre = TxtNombre.getText();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+    LocalDate fechaNacimiento = LocalDate.parse(TxtFechaNacimiento.getText(), formatter);
+    int telefono = Integer.parseInt(TxtTelefono.getText());
+    String correo = TxtCorreo.getText();
+    String puesto = TxtPuesto.getText();
+    double salario = Double.parseDouble(TxtSalario.getText());
+
+    empleado = new Empleado(puesto, salario, telefono, correo, fechaNacimiento, nombre, cedula);
+    Empleados.agregarEmpleado(empleado);
+
+    // Mostrar un mensaje de confirmación con los datos del cliente
+    JOptionPane.showMessageDialog(this, "Cliente agregado:\n" +
+        "Cédula: " + cedula + "\n" +
+        "Nombre: " + nombre + "\n" +
+        "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+        "Teléfono: " + telefono + "\n" +
+        "Correo: " + correo + "\n" +
+        "Puesto: " + puesto + "\n" +
+        "Salario: " + salario);
+
+    // Limpiar los campos después de agregar el cliente
+    TxtCedula.setText("");
+    TxtNombre.setText("");
+    TxtFechaNacimiento.setText("");
+    TxtTelefono.setText("");
+    TxtCorreo.setText("");
+    TxtPuesto.setText("");
+    TxtSalario.setText("");
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
