@@ -9,11 +9,9 @@ package Frame;
  * @author thyfa
  */
 public class FrmMenu extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FrmMenu
-     */
+ 
     public FrmMenu() {
+        
         initComponents();
     }
 
@@ -29,21 +27,21 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        btnAdmiPaquetes = new javax.swing.JButton();
-        btnAdmiEmpleados = new javax.swing.JButton();
-        btnRutas = new javax.swing.JButton();
-        btnEnvios = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        btnGestionarClientes = new javax.swing.JButton();
+        btnAdministrarPaquetes = new javax.swing.JButton();
+        btnAdministrarEmpleados = new javax.swing.JButton();
+        btnGestionarEnvios = new javax.swing.JButton();
+        btnGestionarRutas = new javax.swing.JButton();
+        jDesktopCorreo = new javax.swing.JDesktopPane();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 51, 255));
+        jPanel1.setForeground(new java.awt.Color(204, 51, 255));
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));
 
@@ -51,135 +49,149 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 138, Short.MAX_VALUE)
+            .addGap(0, 3834, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jToolBar1.setBackground(new java.awt.Color(153, 102, 255));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel2.setText("Correos");
+        btnGestionarClientes.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarClientes.setText("Gestionar Clientes");
+        btnGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarClientesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnGestionarClientes);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
+        btnAdministrarPaquetes.setBackground(new java.awt.Color(204, 204, 255));
+        btnAdministrarPaquetes.setText("Administrar Paquetes");
+        btnAdministrarPaquetes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministrarPaquetesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnAdministrarPaquetes);
+
+        btnAdministrarEmpleados.setBackground(new java.awt.Color(204, 204, 255));
+        btnAdministrarEmpleados.setText("Administrar Empleados");
+        btnAdministrarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministrarEmpleadosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnAdministrarEmpleados);
+
+        btnGestionarEnvios.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarEnvios.setText("Gestionar Envios");
+        btnGestionarEnvios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEnviosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnGestionarEnvios);
+
+        btnGestionarRutas.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarRutas.setText("Gestionar Rutas");
+        btnGestionarRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarRutasActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnGestionarRutas);
+
+        jDesktopCorreo.setForeground(new java.awt.Color(204, 102, 255));
+
+        javax.swing.GroupLayout jDesktopCorreoLayout = new javax.swing.GroupLayout(jDesktopCorreo);
+        jDesktopCorreo.setLayout(jDesktopCorreoLayout);
+        jDesktopCorreoLayout.setHorizontalGroup(
+            jDesktopCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3564, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addContainerGap(18, Short.MAX_VALUE))
+        jDesktopCorreoLayout.setVerticalGroup(
+            jDesktopCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1067, Short.MAX_VALUE)
         );
-
-        jButton1.setText("Gestionar Clientes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        btnAdmiPaquetes.setText("Administrar Paquetes");
-        btnAdmiPaquetes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdmiPaquetesActionPerformed(evt);
-            }
-        });
-
-        btnAdmiEmpleados.setText("Administrar Empleados");
-        btnAdmiEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdmiEmpleadosActionPerformed(evt);
-            }
-        });
-
-        btnRutas.setText("Gestionar Rutas");
-
-        btnEnvios.setText("Gestionar Envios");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Envios.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12))
+                        .addGap(260, 260, 260)
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdmiPaquetes)
-                            .addComponent(btnAdmiEmpleados)
-                            .addComponent(btnRutas)
-                            .addComponent(jButton1)
-                            .addComponent(btnEnvios))
-                        .addContainerGap(88, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jDesktopCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4260, 4260, 4260))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(btnAdmiPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAdmiEmpleados)
-                .addGap(18, 18, 18)
-                .addComponent(btnRutas)
-                .addGap(18, 18, 18)
-                .addComponent(btnEnvios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDesktopCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnGestionarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarRutasActionPerformed
+        FrmRutas newFrmRutas= new FrmRutas();
+        newFrmRutas.setVisible(true);
+        this.jDesktopCorreo.add(newFrmRutas);
+    }//GEN-LAST:event_btnGestionarRutasActionPerformed
 
-    private void btnAdmiEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmiEmpleadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdmiEmpleadosActionPerformed
+    private void btnGestionarEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEnviosActionPerformed
+        FrmEnvios newFrmEnvios= new FrmEnvios();
+        newFrmEnvios.setVisible(true);
+        this.jDesktopCorreo.add(newFrmEnvios);
+    }//GEN-LAST:event_btnGestionarEnviosActionPerformed
 
-    private void btnAdmiPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmiPaquetesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdmiPaquetesActionPerformed
+    private void btnAdministrarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarEmpleadosActionPerformed
+        FrmEmpleado newFrmEmpleado= new FrmEmpleado();
+        newFrmEmpleado.setVisible(true);
+        this.jDesktopCorreo.add(newFrmEmpleado);
+    }//GEN-LAST:event_btnAdministrarEmpleadosActionPerformed
+
+    private void btnAdministrarPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarPaquetesActionPerformed
+        FrmPaquete newFrmPaquete= new FrmPaquete();
+        newFrmPaquete.setVisible(true);
+        this.jDesktopCorreo.add(newFrmPaquete);
+    }//GEN-LAST:event_btnAdministrarPaquetesActionPerformed
+
+    private void btnGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarClientesActionPerformed
+        FrmCliente newframeCliente= new FrmCliente();
+        newframeCliente.setVisible(true);
+        this.jDesktopCorreo.add(newframeCliente);
+    }//GEN-LAST:event_btnGestionarClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,16 +229,15 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdmiEmpleados;
-    private javax.swing.JButton btnAdmiPaquetes;
-    private javax.swing.JButton btnEnvios;
-    private javax.swing.JButton btnRutas;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAdministrarEmpleados;
+    private javax.swing.JButton btnAdministrarPaquetes;
+    private javax.swing.JButton btnGestionarClientes;
+    private javax.swing.JButton btnGestionarEnvios;
+    private javax.swing.JButton btnGestionarRutas;
+    public javax.swing.JDesktopPane jDesktopCorreo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

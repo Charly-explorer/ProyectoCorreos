@@ -69,6 +69,8 @@ public class FrmRutas extends javax.swing.JInternalFrame {
 
         jTextField4.setText("jTextField4");
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 255));
