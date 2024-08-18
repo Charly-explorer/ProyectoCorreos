@@ -10,9 +10,7 @@ package Frame;
  */
 public class FrmBuscarRutas extends javax.swing.JDialog {
 
-    /**
-     * Creates new form BuscarPaquete
-     */
+    
     public FrmBuscarRutas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
