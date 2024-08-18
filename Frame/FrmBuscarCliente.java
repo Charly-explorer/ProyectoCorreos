@@ -6,7 +6,6 @@ package Frame;
 
 import Listas.ListaCliente;
 import Personas.Cliente;
-import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmBuscarCliente extends javax.swing.JDialog {

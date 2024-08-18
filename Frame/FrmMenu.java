@@ -35,6 +35,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnAdministrarEmpleados = new javax.swing.JButton();
         btnGestionarEnvios = new javax.swing.JButton();
         btnGestionarRutas = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jDesktopCorreo = new javax.swing.JDesktopPane();
 
         jLabel1.setText("jLabel1");
@@ -98,6 +99,17 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btnGestionarRutas);
+
+        jButton1.setText("Agregar Remitente");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
 
         jDesktopCorreo.setForeground(new java.awt.Color(204, 102, 255));
 
@@ -177,6 +189,12 @@ public class FrmMenu extends javax.swing.JFrame {
         this.jDesktopCorreo.add(newframeCliente);
     }//GEN-LAST:event_btnGestionarClientesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       FrmRemitente newFrmRemitente= new FrmRemitente();
+       newFrmRemitente.setVisible(true);
+       this.jDesktopCorreo.add(newFrmRemitente);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -218,6 +236,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarClientes;
     private javax.swing.JButton btnGestionarEnvios;
     private javax.swing.JButton btnGestionarRutas;
+    private javax.swing.JButton jButton1;
     public javax.swing.JDesktopPane jDesktopCorreo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

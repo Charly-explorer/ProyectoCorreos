@@ -4,11 +4,18 @@
  */
 package Frame;
 
+import Listas.ListaRemitente;
+import Personas.Remitente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author carlo
  */
 public class FrmRemitente extends javax.swing.JInternalFrame {
+
+    Remitente remitente;
+    ListaRemitente remitentes;
 
     /**
      * Creates new form FrmRemitente
@@ -35,7 +42,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNombreRemitente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCedulaRemitente = new javax.swing.JTextField();
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));
 
@@ -114,7 +121,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCedulaRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -129,7 +136,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCedulaRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,25 +162,19 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        int codigo = Integer.parseInt(TxtCodigo.getText());
-        String nombre = TxtNombre.getText();
-        String descripcion = TxtDescripcion.getText();
-        String listaDestino = TxtDestinos.getText();
-        HashSet<String> destinos = new HashSet<>();
-        destinos.add(listaDestino);
+        String nombre = txtNombreRemitente.getText();
+        int cedula = Integer.parseInt(txtCedulaRemitente.getText());
+        remitente = new Remitente(nombre, cedula);
+        remitentes.agregar(remitente);
 
-        ruta = new Ruta(codigo,  nombre, descripcion, destinos);
-        Rutas.agregar(ruta);
+        JOptionPane.showMessageDialog(this, "Remitente agregado:\n"
+                + "Nombre: " + nombre + "\n"
+                + "Cedula: " + cedula + "\n"
+                );
+                
+        txtNombreRemitente.setText("");
+        txtCedulaRemitente.setText("");
 
-        JOptionPane.showMessageDialog(this, "Ruta agregada:\n"
-            + "Ruta: " + ruta + "\n"
-            + "Nombre: " + nombre + "\n"
-            + "Descripción: " + descripcion + "\n"
-            + "Destino: " + listaDestino);
-
-        TxtNombre.setText("");
-        TxtDescripcion.setText("");
-        TxtDestinos.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -191,8 +192,8 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
+    private javax.swing.JTextField txtCedulaRemitente;
     private javax.swing.JTextField txtNombreRemitente;
     // End of variables declaration//GEN-END:variables
 }
