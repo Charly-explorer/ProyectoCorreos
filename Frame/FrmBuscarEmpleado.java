@@ -1,15 +1,41 @@
 package Frame;
 
+import Listas.ListaCliente;
+import Personas.Empleado;
+import Listas.ListaEmpleado;
+import javax.swing.table.DefaultTableModel;
 
-public class FrmBuscarEmpleado extends  javax.swing.JDialog {
-
-  
-     public FrmBuscarEmpleado(java.awt.Frame parent, boolean modal) {
+public class FrmBuscarEmpleado extends javax.swing.JDialog {
+    
+    ListaEmpleado Empleados = ListaEmpleado.getInstance();
+    
+    public FrmBuscarEmpleado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargar();
     }
 
-    
+    private void cargar() {
+        DefaultTableModel model
+                = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        for (Empleado objeto : Empleados.Filtrar(this.TxtNombre.getText())) {
+            if (objeto == null) {
+                continue;
+            }
+            Object datos[] = {objeto.getCedula(),
+                objeto.getNombre(),
+                objeto.getCorreo(),
+                objeto.getTelefono(),
+                objeto.getPuesto(),
+                objeto.getSalario(),
+                objeto.getFechaNacimiento(),
+                2024 - objeto.getFechaNacimiento().getYear()};
+            model.addRow(datos);
+        }
+        jTable1.setModel(model);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,17 +83,17 @@ public class FrmBuscarEmpleado extends  javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Fecha Nacimiento", "Correo", "Telefono", "Puesto", "Salario"
+                "Cedula", "Nombre", "Correo", "Telefono", "Puesto", "Salario", "Fecha Nacimiento", "Edad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -82,6 +108,11 @@ public class FrmBuscarEmpleado extends  javax.swing.JDialog {
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreActionPerformed(evt);
+            }
+        });
+        TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtNombreKeyReleased(evt);
             }
         });
 
@@ -107,7 +138,7 @@ public class FrmBuscarEmpleado extends  javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -162,13 +193,19 @@ public class FrmBuscarEmpleado extends  javax.swing.JDialog {
     }//GEN-LAST:event_TxtNombreActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        int cedula = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        ListaEmpleado.getInstance().eliminarEmpleado(cedula);
+        cargar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-public static void main(String args[]) {
+
+    private void TxtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyReleased
+        this.cargar();
+    }//GEN-LAST:event_TxtNombreKeyReleased
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -184,8 +221,8 @@ public static void main(String args[]) {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      //</editor-fold>
-      
+        //</editor-fold>
+
         //</editor-fold>
 
         /* Create and display the dialog */

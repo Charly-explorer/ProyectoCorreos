@@ -38,8 +38,19 @@ public class ListaEmpleado {
         return false;
     }
 
-    public void eliminarEmpleado(Empleado empleado) {
-        listaEmpleados.remove(empleado);
+    public void eliminarEmpleado(int cedula) {
+        Empleado clienteAEliminar = null;
+
+        for (Empleado empleado : this.listaEmpleados) {
+            if (empleado.getCedula() == cedula) {
+                clienteAEliminar = empleado;
+                break;
+            }
+        }
+        
+        if (clienteAEliminar != null) {
+            this.listaEmpleados.remove(clienteAEliminar);
+        }
     }
 
     public Empleado buscarEmpleado(int id) {
