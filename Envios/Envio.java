@@ -2,75 +2,80 @@ package Envios;
 
 import Paquetes.Paquete;
 import Personas.Cliente;
+import Rutas.Ruta;
 import java.time.LocalDate;
 
+
 public class Envio {
+    
+    private int numeroEnvio;
     private Cliente cliente;
     private Paquete paquete;
-//    private Ruta ruta;
-
+    private Ruta ruta;
     private LocalDate fechaEnvio;
     private LocalDate fechaEntrega;
-    private double precioEnvio;
-    private int contador=1;
-    private int numeroEnvio;
+    private double precio;
     
-    //No implemento setter and getter de cliente, paquete y ruta ya que no cuento con las clases.
-
-    public LocalDate getFechaEnvio() {
-        return fechaEnvio;
-    }
-
-    public LocalDate getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public double getPrecioEnvio() {
-        return precioEnvio;
-    }
+    private static int cont = 0;
 
     public int getNumeroEnvio() {
         return numeroEnvio;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Paquete getPaquete() {
+        return paquete;
+    }
+
+    public Ruta getRuta() {
+        return ruta;
+    }
+
+    public LocalDate getFechaEnvio() {
+        return fechaEnvio;
     }
 
     public void setFechaEnvio(LocalDate fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
+    }
+
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public void setPrecioEnvio(double precioEnvio) {
-        this.precioEnvio = precioEnvio;
+    public double getPrecio() {
+        return precio;
     }
 
-    public Envio(LocalDate fechaEnvio, LocalDate fechaEntrega, double precioEnvio ) {
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    
+    public Envio(int numeroEnvio, Cliente cliente, Paquete paquete, Ruta ruta, LocalDate fechaEnvio, LocalDate fechaEntrega, double precio) {
+        this.numeroEnvio = cont++;
+        this.cliente = cliente;
+        this.paquete = paquete;
+        this.ruta = ruta;
         this.fechaEnvio = fechaEnvio;
         this.fechaEntrega = fechaEntrega;
-        this.precioEnvio = precioEnvio;
-        this.numeroEnvio= contador++;
+        this.precio = precio;
     }
-    
-//  ?  public void despachar() {
-//        if (estado.equals("El paquete se encuentra en el almacen")) {
-//            estado = "Despachado";
-//        }
-//    }
-//
-//    public void entregar() {
-//        if (estado.equals("Despachado")) {
-//            estado = "Entregado";
-//        }
-//    }
-//
-//    public void cancelar() {
-//        if (estado.equals("El paquete se encuentra en el almacen")) {
-//            estado = "Cancelado";
-//        }
-//    }
-//
-//    public double calcularPrecio() {
-//        return paquete.calcularPrecioEnvio();
-//    }
+
+    public Envio() {
+        this(0,new Cliente(),new Paquete(),new Ruta(),LocalDate.now(),LocalDate.now(),0);
+    }
+
+    @Override
+    public String toString() {
+        return "Envio{" + "numeroEnvio=" + numeroEnvio + ", cliente=" + cliente + ", paquete=" + paquete + ", ruta=" + ruta + ", fechaEnvio=" + fechaEnvio + ", fechaEntrega=" + fechaEntrega + ", precio=" + precio + '}';
+    }
+
 }

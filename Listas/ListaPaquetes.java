@@ -5,6 +5,9 @@
 package Listas;
 
 import static Paquetes.EnumEstadoPaquete.Almacenado;
+import static Paquetes.EnumEstadoPaquete.Cancelado;
+import static Paquetes.EnumEstadoPaquete.Despachado;
+import static Paquetes.EnumEstadoPaquete.Entregado;
 import Paquetes.Paquete;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,5 +68,29 @@ public class ListaPaquetes {
             }
         }
         return paquetes;
+    }
+
+    public void despachar(Paquete paquete) {
+        if (paquete.getEstado().equals(Almacenado)) {
+            paquete.setEstado(Despachado);
+        } else {
+            System.out.println("El envio a despachar no esta almacenado");
+        }
+    }
+
+    public void entregar(Paquete paquete) {
+        if (paquete.getEstado().equals(Despachado)) {
+            paquete.setEstado(Entregado);
+        } else {
+            System.out.println("El envio a entregar no ha sido despachado");
+        }
+    }
+
+    public void cancelar(Paquete paquete) {
+        if (paquete.getEstado().equals(Almacenado)) {
+            paquete.setEstado(Cancelado);
+        } else {
+            System.out.println("El envio a cancelar no esta almacenado o ya ha sido entregado");
+        }
     }
 }

@@ -32,10 +32,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnAdministrarEmpleados = new javax.swing.JButton();
         btnGestionarClientes = new javax.swing.JButton();
-        btnAdministrarPaquetes = new javax.swing.JButton();
-        btnGestionarEnvios = new javax.swing.JButton();
-        btnGestionarRutas = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnAdministrarPaquetes = new javax.swing.JButton();
+        btnGestionarRutas = new javax.swing.JButton();
+        btnGestionarEnvios = new javax.swing.JButton();
         jDesktopCorreo = new javax.swing.JDesktopPane();
 
         jLabel1.setText("jLabel1");
@@ -75,6 +75,18 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnGestionarClientes);
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setText("Agregar Remitente");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
+
         btnAdministrarPaquetes.setBackground(new java.awt.Color(204, 204, 255));
         btnAdministrarPaquetes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAdministrarPaquetes.setText("Gestion Paquetes");
@@ -84,16 +96,6 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btnAdministrarPaquetes);
-
-        btnGestionarEnvios.setBackground(new java.awt.Color(204, 204, 255));
-        btnGestionarEnvios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionarEnvios.setText("Gestionar Envios");
-        btnGestionarEnvios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarEnviosActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnGestionarEnvios);
 
         btnGestionarRutas.setBackground(new java.awt.Color(204, 204, 255));
         btnGestionarRutas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -105,16 +107,15 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnGestionarRutas);
 
-        jButton1.setText("Agregar Remitente");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarEnvios.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarEnvios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnGestionarEnvios.setText("Gestionar Envios");
+        btnGestionarEnvios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGestionarEnviosActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton1);
+        jToolBar1.add(btnGestionarEnvios);
 
         jDesktopCorreo.setForeground(new java.awt.Color(204, 102, 255));
 
@@ -137,7 +138,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jDesktopCorreo)
                 .addContainerGap())
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +155,7 @@ public class FrmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
