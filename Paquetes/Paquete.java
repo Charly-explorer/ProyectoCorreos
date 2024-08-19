@@ -6,7 +6,6 @@ package Paquetes;
 
 import static Paquetes.EnumEstadoPaquete.Almacenado;
 import Personas.Destinatario;
-import Personas.Remitente;
 /**
  *
  * @author emman
@@ -16,7 +15,6 @@ public class Paquete {
     private int codigo;
     private String descripcion;
     private double peso;
-    private Remitente remitente;
     private Destinatario destinatario;
     private EnumEstadoPaquete estado;
 
@@ -40,14 +38,6 @@ public class Paquete {
         this.peso = peso;
     }
 
-    public Remitente getRemitente() {
-        return remitente;
-    }
-
-    public void setRemitente(Remitente remitente) {
-        this.remitente = remitente;
-    }
-
     public Destinatario getDestinatario() {
         return destinatario;
     }
@@ -66,17 +56,16 @@ public class Paquete {
         this.estado = Almacenado;
     }
 
-    public Paquete(String descripcion,int codigo, double peso, Remitente remitente, Destinatario destinatario) {
+    public Paquete(String descripcion,int codigo, double peso,Destinatario destinatario) {
         this.descripcion = descripcion;
         this.codigo = codigo;
         this.peso = peso;
-        this.remitente = remitente;
         this.destinatario = destinatario;
         this.estado = Almacenado;
     }
 
     public Paquete() {
-        this("",0,0,new Remitente(),new Destinatario());
+        this("",0,0,new Destinatario());
     }   
     
 }

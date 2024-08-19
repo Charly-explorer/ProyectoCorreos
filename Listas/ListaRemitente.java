@@ -4,9 +4,7 @@
  */
 package Listas;
 
-import Personas.Cliente;
 import Personas.Remitente;
-import Rutas.Ruta;
 import java.util.ArrayList;
 
 /**

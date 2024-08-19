@@ -1,6 +1,5 @@
 package Listas;
 
-import Personas.Cliente;
 import Personas.Empleado;
 import java.util.ArrayList;
 

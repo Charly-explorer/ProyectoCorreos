@@ -2,6 +2,7 @@ package Frame;
 
 import Listas.ListaRemitente;
 import Personas.Remitente;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmBuscarRemitente extends javax.swing.JDialog {
@@ -51,6 +52,7 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtRemitente = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(153, 102, 255));
 
@@ -132,6 +134,13 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
             }
         });
 
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,7 +157,11 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)))
                         .addGap(8, 8, 8)))
                 .addContainerGap())
         );
@@ -165,7 +178,9 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(4, 4, 4)
-                                .addComponent(txtRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15)
+                        .addComponent(btnAdd)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -187,6 +202,25 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
     private void txtRemitenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemitenteKeyReleased
        cargar();
     }//GEN-LAST:event_txtRemitenteKeyReleased
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+       if (jTable1.getSelectedRow()>=0){
+           try{
+               DefaultTableModel tm = (DefaultTableModel)jTable1.getModel();
+               
+               String nombre= String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),1));
+               FrmPaquete.txtRemitente.setText(nombre);
+               
+               
+           
+           } catch(Exception e){
+               
+           }
+           
+       }else{
+           JOptionPane.showMessageDialog(this,"Debe de escoger un remitente","Agregue",JOptionPane.WARNING_MESSAGE);
+       }
+    }//GEN-LAST:event_btnAddActionPerformed
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -223,6 +257,7 @@ public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
