@@ -30,9 +30,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
+        btnAdministrarEmpleados = new javax.swing.JButton();
         btnGestionarClientes = new javax.swing.JButton();
         btnAdministrarPaquetes = new javax.swing.JButton();
-        btnAdministrarEmpleados = new javax.swing.JButton();
         btnGestionarEnvios = new javax.swing.JButton();
         btnGestionarRutas = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -55,7 +55,18 @@ public class FrmMenu extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        btnAdministrarEmpleados.setBackground(new java.awt.Color(204, 204, 255));
+        btnAdministrarEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAdministrarEmpleados.setText("Gestion Empleados");
+        btnAdministrarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministrarEmpleadosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnAdministrarEmpleados);
+
         btnGestionarClientes.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnGestionarClientes.setText("Gestionar Clientes");
         btnGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +76,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jToolBar1.add(btnGestionarClientes);
 
         btnAdministrarPaquetes.setBackground(new java.awt.Color(204, 204, 255));
-        btnAdministrarPaquetes.setText("Administrar Paquetes");
+        btnAdministrarPaquetes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAdministrarPaquetes.setText("Gestion Paquetes");
         btnAdministrarPaquetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdministrarPaquetesActionPerformed(evt);
@@ -73,16 +85,8 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnAdministrarPaquetes);
 
-        btnAdministrarEmpleados.setBackground(new java.awt.Color(204, 204, 255));
-        btnAdministrarEmpleados.setText("Administrar Empleados");
-        btnAdministrarEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdministrarEmpleadosActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnAdministrarEmpleados);
-
         btnGestionarEnvios.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarEnvios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnGestionarEnvios.setText("Gestionar Envios");
         btnGestionarEnvios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +96,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jToolBar1.add(btnGestionarEnvios);
 
         btnGestionarRutas.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarRutas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnGestionarRutas.setText("Gestionar Rutas");
         btnGestionarRutas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +126,7 @@ public class FrmMenu extends javax.swing.JFrame {
         );
         jDesktopCorreoLayout.setVerticalGroup(
             jDesktopCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
