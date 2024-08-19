@@ -36,6 +36,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnAdministrarPaquetes = new javax.swing.JButton();
         btnGestionarRutas = new javax.swing.JButton();
         btnGestionarEnvios = new javax.swing.JButton();
+        btnGestionarDestinos = new javax.swing.JButton();
         jDesktopCorreo = new javax.swing.JDesktopPane();
 
         jLabel1.setText("jLabel1");
@@ -117,6 +118,19 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnGestionarEnvios);
 
+        btnGestionarDestinos.setBackground(new java.awt.Color(204, 204, 255));
+        btnGestionarDestinos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnGestionarDestinos.setText("Gestionar Destinos");
+        btnGestionarDestinos.setFocusable(false);
+        btnGestionarDestinos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGestionarDestinos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGestionarDestinos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarDestinosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnGestionarDestinos);
+
         jDesktopCorreo.setForeground(new java.awt.Color(204, 102, 255));
 
         javax.swing.GroupLayout jDesktopCorreoLayout = new javax.swing.GroupLayout(jDesktopCorreo);
@@ -138,7 +152,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jDesktopCorreo)
                 .addContainerGap())
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1121, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +169,7 @@ public class FrmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 899, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,6 +215,12 @@ public class FrmMenu extends javax.swing.JFrame {
        this.jDesktopCorreo.add(newFrmRemitente);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnGestionarDestinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDestinosActionPerformed
+        FrmDestinos newFrmDestino = new FrmDestinos();
+        newFrmDestino.setVisible(true);
+        this.jDesktopCorreo.add(newFrmDestino);
+    }//GEN-LAST:event_btnGestionarDestinosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +260,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnAdministrarEmpleados;
     private javax.swing.JButton btnAdministrarPaquetes;
     private javax.swing.JButton btnGestionarClientes;
+    private javax.swing.JButton btnGestionarDestinos;
     private javax.swing.JButton btnGestionarEnvios;
     private javax.swing.JButton btnGestionarRutas;
     private javax.swing.JButton jButton1;

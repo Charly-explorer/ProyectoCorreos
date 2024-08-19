@@ -4,17 +4,32 @@
  */
 package Frame;
 
+import Listas.ListaDestinos;
+import java.util.HashSet;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thyfa
  */
 public class FrmDestinos extends javax.swing.JInternalFrame {
 
+    ListaDestinos destinos = ListaDestinos.getInstance();
+
     /**
      * Creates new form FrmDestinos
      */
     public FrmDestinos() {
         initComponents();
+        actualizarComboBox(cbDestino);
+    }
+
+    private void actualizarComboBox(JComboBox<String> comboBox) {
+        comboBox.removeAllItems();
+        for (String txt : destinos.getListaDestinos()) {
+            comboBox.addItem(txt);
+        }
     }
 
     /**
@@ -65,8 +80,25 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
         jLabel2.setText("Destino");
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/agregar3.png"))); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Eliminar3.png"))); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        cbDestino.setEditable(true);
+        cbDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDestinoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,6 +151,24 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDestinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbDestinoActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        destinos.agregar(cbDestino.getSelectedItem().toString());
+        JOptionPane.showMessageDialog(this, "Destino Agregado:\n" + cbDestino.getSelectedItem().toString());
+        actualizarComboBox(cbDestino);
+        cbDestino.setSelectedIndex(-1);
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        destinos.eliminar(cbDestino.getSelectedItem().toString());
+        JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(),"Eliminacion de destino",JOptionPane.ERROR_MESSAGE);
+        actualizarComboBox(cbDestino);
+        cbDestino.setSelectedIndex(-1);
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

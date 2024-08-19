@@ -4,7 +4,6 @@
  */
 package Listas;
 
-import Personas.Destinatario;
 import java.util.HashSet;
 
 /**
@@ -28,6 +27,11 @@ public class ListaDestinos {
         return instance;
     }
 
+    public HashSet<String> getListaDestinos() {
+        return listaDestinos;
+    }
+    
+
     public void agregar(String txt) {
         listaDestinos.add(txt);
     }
@@ -38,7 +42,7 @@ public class ListaDestinos {
 
     public String buscar(String txt) {
         for (String destino : this.listaDestinos) {
-            if (destino == txt) {
+            if (destino.equals(txt)) {
                 return destino;
             }
         }
