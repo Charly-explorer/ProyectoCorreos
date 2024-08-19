@@ -83,9 +83,17 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                 {null, null}
             },
             new String [] {
-                "Nombre", "Cedula"
+                "Cedula", "Nombre"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
 
@@ -117,6 +125,12 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Nombre");
+
+        txtRemitente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRemitenteKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,12 +175,18 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int cedula = Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        ListaRemitente.getInstance().eliminar(cedula);
+        cargar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
      this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtRemitenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemitenteKeyReleased
+       cargar();
+    }//GEN-LAST:event_txtRemitenteKeyReleased
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

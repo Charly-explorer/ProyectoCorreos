@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class FrmRemitente extends javax.swing.JInternalFrame {
 
     Remitente remitente;
-    ListaRemitente remitentes;
+    ListaRemitente remitentes = ListaRemitente.getInstance();
 
     /**
      * Creates new form FrmRemitente
@@ -43,6 +43,8 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         txtNombreRemitente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtCedulaRemitente = new javax.swing.JTextField();
+
+        setClosable(true);
 
         jPanel2.setBackground(new java.awt.Color(153, 102, 255));
 

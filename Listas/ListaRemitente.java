@@ -4,6 +4,7 @@
  */
 package Listas;
 
+import Personas.Cliente;
 import Personas.Remitente;
 import Rutas.Ruta;
 import java.util.ArrayList;
@@ -33,8 +34,19 @@ public class ListaRemitente {
         listaRemitentes.add(remitente);
     }
 
-    public void eliminar(Remitente remitente) {
-        listaRemitentes.remove(remitente);
+     public void eliminar(int cedula) {
+        Remitente RemitenteAEliminar = null;
+
+        for (Remitente remitente : this.listaRemitentes) {
+            if (remitente.getCedula() == cedula) {
+                RemitenteAEliminar = remitente;
+                break;
+            }
+        }
+        
+        if (RemitenteAEliminar != null) {
+            this.listaRemitentes.remove(RemitenteAEliminar);
+        }
     }
 
     public Remitente buscar(int cedula) {
