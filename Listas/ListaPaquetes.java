@@ -37,12 +37,18 @@ public class ListaPaquetes {
         listaPaquetes.put(paquete.getCodigo(), paquete);
     }
 
-    public void eliminar(Paquete paquete) throws Exception {
-        if (paquete.getEstado() == Almacenado) {
-            listaPaquetes.remove(paquete.getCodigo(), paquete);
-        } else {
-            throw new Exception("No existe el paquete");
-        }
+    public void eliminar(int code){
+        HashMap<Integer, Paquete> paquetes = new HashMap<>();
+
+            for (Map.Entry<Integer, Paquete> entry : listaPaquetes.entrySet()) {
+                Paquete objeto = entry.getValue();
+                if (objeto.getCodigo() == code) {
+                    if (objeto.getEstado() == Almacenado) {
+                    listaPaquetes.remove(code,objeto);
+                    }
+                }
+            }
+        
     }
 
     public Paquete buscar(Paquete paquete) {

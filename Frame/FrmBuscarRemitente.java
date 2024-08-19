@@ -103,7 +103,7 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 847, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,8 +210,8 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                
                String nombre= String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),1));
                FrmPaquete.txtRemitente.setText(nombre);
-               
-               
+               String cedula = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),0));
+               FrmPaquete.txtRemitenteCedula.setText(cedula);
            
            } catch(Exception e){
                
@@ -220,6 +220,7 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
        }else{
            JOptionPane.showMessageDialog(this,"Debe de escoger un remitente","Agregue",JOptionPane.WARNING_MESSAGE);
        }
+       this.dispose();
     }//GEN-LAST:event_btnAddActionPerformed
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */

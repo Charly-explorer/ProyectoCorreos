@@ -4,18 +4,47 @@
  */
 package Frame;
 
+import Listas.ListaPaquetes;
+import Paquetes.Paquete;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author thyfa
  */
 public class FrmBuscarPaquete extends javax.swing.JDialog {
-
+    
+    ListaPaquetes Paquetes = ListaPaquetes.getInstance();
     /**
      * Creates new form BuscarPaquete
      */
     public FrmBuscarPaquete(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargar();
+    }
+    
+    private void cargar() {
+        DefaultTableModel model
+                = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        HashMap<Integer, Paquete> paquetes = Paquetes.Filtrar(Integer.parseInt(this.TxtCodigo.getText()));
+        int num = Integer.parseInt(this.TxtCodigo.getText());
+        for (Map.Entry<Integer, Paquete> entry : paquetes.entrySet()) {
+            Paquete objeto = entry.getValue();
+            if (objeto == null) {
+                continue;
+            }
+            Object datos[] = {objeto.getCodigo(),
+                objeto.getDescripcion(),
+                objeto.getPeso(),
+                objeto.getRemitente().getNombre(),
+                objeto.getDestinatario().getNombre()};
+            model.addRow(datos);
+        }
+        jTable1.setModel(model);
     }
 
     /**
@@ -54,8 +83,9 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(302, 302, 302)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -69,17 +99,17 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Descripcion", "Peso", "Remitente", "Destinatario"
+                "Codigo", "Descripcion", "Peso", "Remitente", "Destinatario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -91,13 +121,24 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         jLabel2.setText("Codigo");
 
+        TxtCodigo.setText("0");
         TxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCodigoActionPerformed(evt);
             }
         });
+        TxtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtCodigoKeyReleased(evt);
+            }
+        });
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Eliminar3.png"))); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +158,7 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addContainerGap(522, Short.MAX_VALUE))
+                        .addContainerGap(999, Short.MAX_VALUE))
                     .addComponent(TxtCodigo)))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(111, 111, 111)
@@ -167,6 +208,16 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        ListaPaquetes.getInstance().eliminar(codigo);
+        cargar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void TxtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyReleased
+        cargar();
+    }//GEN-LAST:event_TxtCodigoKeyReleased
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
