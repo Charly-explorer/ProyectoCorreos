@@ -157,14 +157,14 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbDestinoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        destinos.agregar(cbDestino.getSelectedItem().toString());
+        destinos.agregar(cbDestino.getSelectedItem().toString().toUpperCase());
         JOptionPane.showMessageDialog(this, "Destino Agregado:\n" + cbDestino.getSelectedItem().toString());
         actualizarComboBox(cbDestino);
         cbDestino.setSelectedIndex(-1);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        destinos.eliminar(cbDestino.getSelectedItem().toString());
+        destinos.eliminar(cbDestino.getSelectedItem().toString().toUpperCase());
         JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(),"Eliminacion de destino",JOptionPane.ERROR_MESSAGE);
         actualizarComboBox(cbDestino);
         cbDestino.setSelectedIndex(-1);

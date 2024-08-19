@@ -33,8 +33,13 @@ public class ListaRuta {
         listaRutas.add(ruta);
     }
 
-    public void eliminar(Ruta ruta) {
-        listaRutas.remove(ruta);
+    public void eliminar(int codigo) {
+        for (Ruta ruta : this.listaRutas) {
+            if (ruta.getCodigo() == codigo) {
+                this.listaRutas.remove(ruta);
+                break;
+            }
+        }
     }
 
     public Ruta buscar(String nombre) {

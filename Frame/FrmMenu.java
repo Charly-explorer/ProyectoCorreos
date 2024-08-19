@@ -76,6 +76,7 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnGestionarClientes);
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Agregar Remitente");
         jButton1.setFocusable(false);
