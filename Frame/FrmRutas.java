@@ -150,6 +150,18 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         jLabel6.setText("Destinos");
 
+        TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNombreKeyTyped(evt);
+            }
+        });
+
+        TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtDescripcionKeyTyped(evt);
+            }
+        });
+
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/agregar3.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +173,17 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
+            }
+        });
+
+        TxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCodigoActionPerformed(evt);
+            }
+        });
+        TxtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCodigoKeyTyped(evt);
             }
         });
 
@@ -301,6 +324,25 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         jPanel4.repaint();
 //addNewTextField();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TxtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyTyped
+         char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_TxtCodigoKeyTyped
+
+    private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
+       char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    }//GEN-LAST:event_TxtNombreKeyTyped
+
+    private void TxtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDescripcionKeyTyped
+      char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    }//GEN-LAST:event_TxtDescripcionKeyTyped
+
+    private void TxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCodigoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

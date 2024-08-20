@@ -9,6 +9,7 @@ import static Frame.FrmBuscarRemitente.btnAdd;
 import Listas.ListaPaquetes;
 import Paquetes.Paquete;
 import Personas.Destinatario;
+import Personas.Remitente;
 import javax.swing.JOptionPane;
 
 /**
@@ -109,6 +110,17 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
                 TxtCodigoActionPerformed(evt);
             }
         });
+        TxtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCodigoKeyTyped(evt);
+            }
+        });
+
+        TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtDescripcionKeyTyped(evt);
+            }
+        });
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/agregar3.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +139,22 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         TxtNombreDestinatario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreDestinatarioActionPerformed(evt);
+            }
+        });
+        TxtNombreDestinatario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNombreDestinatarioKeyTyped(evt);
+            }
+        });
+
+        TxtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCedulaActionPerformed(evt);
+            }
+        });
+        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCedulaKeyTyped(evt);
             }
         });
 
@@ -326,6 +354,30 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     private void TxtNombreDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreDestinatarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNombreDestinatarioActionPerformed
+
+    private void TxtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyTyped
+          char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_TxtCodigoKeyTyped
+
+    private void TxtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDescripcionKeyTyped
+       char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    }//GEN-LAST:event_TxtDescripcionKeyTyped
+
+    private void TxtNombreDestinatarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreDestinatarioKeyTyped
+       char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    }//GEN-LAST:event_TxtNombreDestinatarioKeyTyped
+
+    private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCedulaActionPerformed
+
+    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
+          char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_TxtCedulaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

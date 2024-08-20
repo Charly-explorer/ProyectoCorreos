@@ -7,19 +7,50 @@ package Frame;
 import Personas.Cliente;
 import Listas.ListaCliente;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author thyfa
  */
 public class FrmCliente extends javax.swing.JInternalFrame {
+
     ListaCliente Clientes = ListaCliente.getInstance();
     Cliente cliente;
-    
+
     public FrmCliente() {
-        initComponents();       
+        initComponents();
+
+    }
+
+    public void validarFechaNacimiento(JTextField textField) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        try {
+
+            LocalDate fechaNacimiento = LocalDate.parse(textField.getText(), formatter);
+            LocalDate fechaActual = LocalDate.now();
+
+            if (!fechaNacimiento.isBefore(fechaActual)) {
+                JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser actual o futura.", "Error", JOptionPane.ERROR_MESSAGE);
+                textField.setText("");
+                return;
+            }
+
+            int edad = Period.between(fechaNacimiento, fechaActual).getYears();
+
+            if (edad < 18) {
+                JOptionPane.showMessageDialog(null, "El cliente debe  ser mayor de 18 años.", "Error", JOptionPane.ERROR_MESSAGE);
+                textField.setText("");
+            }
+
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(null, "Fecha no válida. Use el formato dd-MM-yyyy.", "Error", JOptionPane.ERROR_MESSAGE);
+            textField.setText("");
+        }
     }
 
     /**
@@ -95,14 +126,49 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                 TxtCedulaActionPerformed(evt);
             }
         });
+        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCedulaKeyTyped(evt);
+            }
+        });
 
         TxtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNombreKeyTyped(evt);
+            }
+        });
 
         TxtFechaNacimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtFechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtFechaNacimientoFocusLost(evt);
+            }
+        });
+        TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFechaNacimientoActionPerformed(evt);
+            }
+        });
+        TxtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtFechaNacimientoKeyTyped(evt);
+            }
+        });
 
         TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefonoKeyTyped(evt);
+            }
+        });
 
         TxtCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCorreoKeyTyped(evt);
+            }
+        });
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/agregar3.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -208,47 +274,97 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCedulaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-   // Recoger los datos de los campos
-    int cedula = Integer.parseInt(TxtCedula.getText());
-    String nombre = TxtNombre.getText();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
-    LocalDate fechaNacimiento = LocalDate.parse(TxtFechaNacimiento.getText(),formatter);
-    int telefono = Integer.parseInt(TxtTelefono.getText());
-    String correo = TxtCorreo.getText();
-    
-    cliente = new Cliente(telefono,correo,fechaNacimiento,nombre,cedula);
-    Clientes.agregar(cliente);
-    
-    // Mostrar un mensaje de confirmación con los datos del cliente
-    JOptionPane.showMessageDialog(this, "Cliente agregado:\n" +
-        "Cédula: " + cedula + "\n" +
-        "Nombre: " + nombre + "\n" +
-        "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
-        "Teléfono: " + telefono + "\n" +
-        "Correo: " + correo);
-    
-    
+        // Recoger los datos de los campos
+        int cedula = Integer.parseInt(TxtCedula.getText());
+        String nombre = TxtNombre.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fechaNacimiento = LocalDate.parse(TxtFechaNacimiento.getText(), formatter);
+        int telefono = Integer.parseInt(TxtTelefono.getText());
+        String correo = TxtCorreo.getText();
 
-    // Limpiar los campos después de agregar el cliente
-    TxtCedula.setText("");
-    TxtNombre.setText("");
-    TxtFechaNacimiento.setText("");
-    TxtTelefono.setText("");
-    TxtCorreo.setText("");
-    
+        cliente = new Cliente(telefono, correo, fechaNacimiento, nombre, cedula);
+        Clientes.agregar(cliente);
+
+        // Mostrar un mensaje de confirmación con los datos del cliente
+        JOptionPane.showMessageDialog(this, "Cliente agregado:\n"
+                + "Cédula: " + cedula + "\n"
+                + "Nombre: " + nombre + "\n"
+                + "Fecha de Nacimiento: " + fechaNacimiento + "\n"
+                + "Teléfono: " + telefono + "\n"
+                + "Correo: " + correo);
+
+        // Limpiar los campos después de agregar el cliente
+        TxtCedula.setText("");
+        TxtNombre.setText("");
+        TxtFechaNacimiento.setText("");
+        TxtTelefono.setText("");
+        TxtCorreo.setText("");
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarCliente newBuscarCliente= new FrmBuscarCliente(null,true);
+        FrmBuscarCliente newBuscarCliente = new FrmBuscarCliente(null, true);
         newBuscarCliente.setLocationRelativeTo(null);
         newBuscarCliente.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        
+
     }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_TxtCedulaKeyTyped
+
+    private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') {
+            evt.consume();
+        }
+
+
+    }//GEN-LAST:event_TxtNombreKeyTyped
+
+    private void TxtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFechaNacimientoActionPerformed
+
+    private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9') && c != '-') {
+            evt.consume();
+        }
+
+
+    }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
+
+    private void TxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+
+
+    }//GEN-LAST:event_TxtTelefonoKeyTyped
+
+    private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') {
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_TxtCorreoKeyTyped
+
+    private void TxtFechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoFocusLost
+        validarFechaNacimiento(TxtFechaNacimiento);
+
+    }//GEN-LAST:event_TxtFechaNacimientoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
