@@ -382,7 +382,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
     private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
         char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z' && c != '@') evt.consume();
 
     }//GEN-LAST:event_TxtCorreoKeyTyped
 
