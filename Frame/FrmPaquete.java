@@ -9,7 +9,6 @@ import static Frame.FrmBuscarRemitente.btnAdd;
 import Listas.ListaPaquetes;
 import Paquetes.Paquete;
 import Personas.Destinatario;
-import Personas.Remitente;
 import javax.swing.JOptionPane;
 
 /**
