@@ -95,8 +95,20 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Nombre");
 
+        txtNombreRemitente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreRemitenteKeyTyped(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Cedula");
+
+        txtCedulaRemitente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaRemitenteKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,6 +196,16 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         newBuscarRutas.setLocationRelativeTo(null);
         newBuscarRutas.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombreRemitenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreRemitenteKeyTyped
+       char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    }//GEN-LAST:event_txtNombreRemitenteKeyTyped
+
+    private void txtCedulaRemitenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaRemitenteKeyTyped
+        char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_txtCedulaRemitenteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

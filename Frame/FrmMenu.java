@@ -11,11 +11,19 @@ import javax.swing.JFrame;
  * @author thyfa
  */
 public class FrmMenu extends javax.swing.JFrame {
- 
+   
+    
+   
     public FrmMenu() {
         
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+    
+    public void abrirCliente(){
+       FrmCliente newFrmCliente= new FrmCliente();
+        newFrmCliente.setVisible(true);
+        this.jDesktopCorreo.add(newFrmCliente);  
     }
 
     /**
@@ -205,9 +213,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdministrarPaquetesActionPerformed
 
     private void btnGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarClientesActionPerformed
-        FrmCliente newframeCliente= new FrmCliente();
-        newframeCliente.setVisible(true);
-        this.jDesktopCorreo.add(newframeCliente);
+        FrmCliente newFrmCliente= new FrmCliente();
+        newFrmCliente.setVisible(true);
+        this.jDesktopCorreo.add(newFrmCliente);
     }//GEN-LAST:event_btnGestionarClientesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -265,7 +273,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarEnvios;
     private javax.swing.JButton btnGestionarRutas;
     private javax.swing.JButton jButton1;
-    public javax.swing.JDesktopPane jDesktopCorreo;
+    public static javax.swing.JDesktopPane jDesktopCorreo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;

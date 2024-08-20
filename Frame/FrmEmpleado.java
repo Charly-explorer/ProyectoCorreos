@@ -109,10 +109,26 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 TxtCedulaActionPerformed(evt);
             }
         });
+        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCedulaKeyTyped(evt);
+            }
+        });
+
+        TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNombreKeyTyped(evt);
+            }
+        });
 
         TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFechaNacimientoActionPerformed(evt);
+            }
+        });
+        TxtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtFechaNacimientoKeyTyped(evt);
             }
         });
 
@@ -121,10 +137,32 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 TxtCorreoActionPerformed(evt);
             }
         });
+        TxtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtCorreoKeyTyped(evt);
+            }
+        });
+
+        TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefonoKeyTyped(evt);
+            }
+        });
 
         TxtPuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtPuestoActionPerformed(evt);
+            }
+        });
+        TxtPuesto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtPuestoKeyTyped(evt);
+            }
+        });
+
+        TxtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtSalarioKeyTyped(evt);
             }
         });
 
@@ -323,6 +361,48 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         newBuscarEmpleado.setVisible(true); 
 
     }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
+
+    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
+       char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+
+    }//GEN-LAST:event_TxtCedulaKeyTyped
+
+    private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
+        char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+
+    }//GEN-LAST:event_TxtNombreKeyTyped
+
+    private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
+         char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+
+    }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
+
+    private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
+        char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+
+    }//GEN-LAST:event_TxtCorreoKeyTyped
+
+    private void TxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyTyped
+         char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+
+    }//GEN-LAST:event_TxtTelefonoKeyTyped
+
+    private void TxtPuestoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPuestoKeyTyped
+       char c= evt.getKeyChar();
+       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+
+    }//GEN-LAST:event_TxtPuestoKeyTyped
+
+    private void TxtSalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtSalarioKeyTyped
+        char c= evt.getKeyChar();
+          if(c<'0'||c>'9')evt.consume();
+
+    }//GEN-LAST:event_TxtSalarioKeyTyped
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
