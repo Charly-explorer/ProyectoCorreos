@@ -195,7 +195,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
-    private javax.swing.JTextField txtCedulaRemitente;
-    private javax.swing.JTextField txtNombreRemitente;
+    public static javax.swing.JTextField txtCedulaRemitente;
+    public static javax.swing.JTextField txtNombreRemitente;
     // End of variables declaration//GEN-END:variables
 }

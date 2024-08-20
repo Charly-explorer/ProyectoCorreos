@@ -104,7 +104,7 @@ package Frame;
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cliente", "Paquete", "Ruta", "Fecha Envio", "Fecha Entrega", "Paso", "Costo Envio"
+                "Cliente", "Paquete", "Ruta", "Fecha Envio", "Fecha Entrega", "Estado", "Costo Envio"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

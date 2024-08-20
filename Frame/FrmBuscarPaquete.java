@@ -4,16 +4,20 @@
  */
 package Frame;
 
+import static Frame.FrmEnvios.TxtCostoEnvio;
+import static Frame.FrmEnvios.TxtPaquete;
 import Listas.ListaPaquetes;
 import Paquetes.Paquete;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author thyfa
  */
+
 public class FrmBuscarPaquete extends javax.swing.JDialog {
     
     ListaPaquetes Paquetes = ListaPaquetes.getInstance();
@@ -66,6 +70,7 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         TxtCodigo = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        BtnObtenerPaquete = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -147,6 +152,13 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
             }
         });
 
+        BtnObtenerPaquete.setText("Obtener");
+        BtnObtenerPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnObtenerPaqueteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -165,6 +177,8 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                 .addComponent(btnEliminar)
                 .addGap(139, 139, 139)
                 .addComponent(jButton1)
+                .addGap(127, 127, 127)
+                .addComponent(BtnObtenerPaquete)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,7 +197,9 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                         .addComponent(btnEliminar)
                         .addGap(38, 38, 38))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(BtnObtenerPaquete))
                         .addGap(47, 47, 47))))
         );
 
@@ -218,42 +234,63 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
     private void TxtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyReleased
         cargar();
     }//GEN-LAST:event_TxtCodigoKeyReleased
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+
+    private void BtnObtenerPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnObtenerPaqueteActionPerformed
+        if (jTable1.getSelectedRow() >= 0) {
+            try {
+                DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
+
+                String nombre = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 1));
+                TxtPaquete.setText(nombre);
+                String peso = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 2));
+                TxtCostoEnvio.setText(peso);
+
+            } catch (Exception e) {
+
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe de escoger un remitente", "Agregue", JOptionPane.WARNING_MESSAGE);
         }
-        //</editor-fold>
-
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                FrmBuscarPaquete dialog = new FrmBuscarPaquete(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnObtenerPaqueteActionPerformed
+    public static void main(String args[]) {
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        });
+        }
+    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    //</editor-fold>
+
+    /* Create and display the dialog */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            FrmBuscarPaquete dialog = new FrmBuscarPaquete(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton BtnObtenerPaquete;
     private javax.swing.JTextField TxtCodigo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton1;
