@@ -4,18 +4,43 @@
  */
 package Frame;
 
+import Envios.Envio;
+import Listas.ListaEnvios;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author thyfa
  */
- public class FrmBuscarEnvio extends javax.swing.JDialog {
-
+public class FrmBuscarEnvio extends javax.swing.JDialog {
+    ListaEnvios envios = ListaEnvios.getInstance();
     /**
      * Creates new form BuscarPaquete
      */
     public FrmBuscarEnvio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargar();
+    }
+
+    private void cargar() {
+        DefaultTableModel model
+                = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        for (Envio objeto : envios.Filtrar(Integer.parseInt(this.txtNumeroEnvio.getText()))) {
+            if (objeto == null) {
+                continue;
+            }
+            Object datos[] = {objeto.getNumeroEnvio(),
+                objeto.getCliente().getNombre(),
+                objeto.getPaquete().getCodigo(),
+                objeto.getRuta().getNombre(),
+                objeto.getFechaEnvio().toString(),
+                objeto.getFechaEntrega().toString(),
+                objeto.getPaquete().getEstado()};
+            model.addRow(datos);
+        }
+        jTable1.setModel(model);
     }
 
     /**
@@ -88,25 +113,46 @@ package Frame;
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        jLabel3.setText("Numero");
+        jLabel3.setText("Codigo");
 
+        txtNumeroEnvio.setText("0");
         txtNumeroEnvio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroEnvioActionPerformed(evt);
             }
         });
+        txtNumeroEnvio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumeroEnvioKeyReleased(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cliente", "Paquete", "Ruta", "Fecha Envio", "Fecha Entrega", "Estado", "Costo Envio"
+                "Codigo", "Cliente", "Paquete", "Ruta", "Fecha Envio", "Fecha Entrega", "Estado", "Costo Envio"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Eliminar3.png"))); // NOI18N
@@ -190,42 +236,46 @@ package Frame;
     }//GEN-LAST:event_txtNumeroEnvioActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
- public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+
+    private void txtNumeroEnvioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroEnvioKeyReleased
+        cargar();
+    }//GEN-LAST:event_txtNumeroEnvioKeyReleased
+     public static void main(String args[]) {
+         /* Set the Nimbus look and feel */
+         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+          */
+         try {
+             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                 if ("Nimbus".equals(info.getName())) {
+                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                     break;
+                 }
+             }
+         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+             java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+         }
+         //</editor-fold>
 
-        //</editor-fold>
+         //</editor-fold>
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                FrmBuscarEnvio dialog = new FrmBuscarEnvio(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+         /* Create and display the dialog */
+         java.awt.EventQueue.invokeLater(new Runnable() {
+             public void run() {
+                 FrmBuscarEnvio dialog = new FrmBuscarEnvio(new javax.swing.JFrame(), true);
+                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                     @Override
+                     public void windowClosing(java.awt.event.WindowEvent e) {
+                         System.exit(0);
+                     }
+                 });
+                 dialog.setVisible(true);
+             }
+         });
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

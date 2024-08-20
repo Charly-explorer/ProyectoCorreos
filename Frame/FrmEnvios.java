@@ -268,7 +268,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtRutaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      FrmBuscarEnvio newBuscarenvio= new FrmBuscarEnvio(null,true);
+        FrmBuscarEnvio newBuscarenvio= new FrmBuscarEnvio(null,true);
         newBuscarenvio.setLocationRelativeTo(null);
         newBuscarenvio.setVisible(true); 
     }//GEN-LAST:event_jButton2ActionPerformed

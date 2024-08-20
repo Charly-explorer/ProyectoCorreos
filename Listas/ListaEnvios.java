@@ -50,5 +50,23 @@ public class ListaEnvios {
         }
         return null;
     }
+    
+        public Queue<Envio> Filtrar(int filtro) {
+
+        if (filtro == 0) {
+            return listaEnvios;
+        }
+        Queue<Envio> envios = new LinkedList<>();
+
+        for (Envio objeto : listaEnvios) {
+            if (objeto == null) {
+                continue;
+            }
+            if (objeto.getNumeroEnvio()== filtro) {
+                envios.add(objeto);
+            }
+        }
+        return envios;
+    }
 
 }
