@@ -300,7 +300,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtFEnvio;
     public static javax.swing.JTextField TxtPaquete;
     public static javax.swing.JTextField TxtRuta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
