@@ -34,10 +34,11 @@ public class FrmBuscarEnvio extends javax.swing.JDialog {
             Object datos[] = {objeto.getNumeroEnvio(),
                 objeto.getCliente().getNombre(),
                 objeto.getPaquete().getCodigo(),
-                objeto.getRuta().getNombre(),
+                objeto.getRuta(),
                 objeto.getFechaEnvio().toString(),
                 objeto.getFechaEntrega().toString(),
-                objeto.getPaquete().getEstado()};
+                objeto.getPaquete().getEstado(),
+                objeto.getPrecio()};
             model.addRow(datos);
         }
         jTable1.setModel(model);

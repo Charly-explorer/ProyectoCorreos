@@ -37,23 +37,28 @@ public class ListaPaquetes {
         listaPaquetes.put(paquete.getCodigo(), paquete);
     }
 
-    public void eliminar(int code){
+    public void eliminar(int code) {
         HashMap<Integer, Paquete> paquetes = new HashMap<>();
 
-            for (Map.Entry<Integer, Paquete> entry : listaPaquetes.entrySet()) {
-                Paquete objeto = entry.getValue();
-                if (objeto.getCodigo() == code) {
-                    if (objeto.getEstado() == Almacenado) {
-                    listaPaquetes.remove(code,objeto);
-                    }
+        for (Map.Entry<Integer, Paquete> entry : listaPaquetes.entrySet()) {
+            Paquete objeto = entry.getValue();
+            if (objeto.getCodigo() == code) {
+                if (objeto.getEstado() == Almacenado) {
+                    listaPaquetes.remove(code, objeto);
                 }
             }
-        
+        }
+
     }
 
-    public Paquete buscar(Paquete paquete) {
+    public Paquete buscarPaquete(int codigo) {
 
-        return listaPaquetes.get(paquete.getCodigo());
+        for (Paquete objeto : this.listaPaquetes.values()) {
+            if (objeto.getCodigo() == codigo) {
+                return objeto;
+            }
+        }
+        return null;
 
     }
 

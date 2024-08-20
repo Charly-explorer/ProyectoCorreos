@@ -44,7 +44,7 @@ public class ListaCliente {
         }
     }
 
-    public Cliente buscar(int id) {
+    public Cliente buscarCliente(int id) {
         for (Cliente cliente : this.listaCliente) {
             if (cliente.getCedula() == id) {
                 return cliente;
@@ -58,7 +58,7 @@ public class ListaCliente {
     }
 
     public boolean actualizar(int id, int telefono, String nuevoCorreo) {
-        Cliente cliente = buscar(id);
+        Cliente cliente = buscarCliente(id);
         if (cliente != null) {
             cliente.setTelefono(telefono);
             cliente.setCorreo(nuevoCorreo);

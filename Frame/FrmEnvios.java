@@ -7,7 +7,12 @@ package Frame;
 import Envios.Envio;
 import static Frame.FrmBuscarRutas.BtnEliminarRuta;
 import static Frame.FrmBuscarRutas.BtnObtenerRuta;
+import Listas.ListaCliente;
 import Listas.ListaEnvios;
+import Listas.ListaPaquetes;
+import Paquetes.EnumEstadoPaquete;
+import Paquetes.Paquete;
+import Personas.Cliente;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -20,7 +25,8 @@ import javax.swing.JOptionPane;
 public class FrmEnvios extends javax.swing.JInternalFrame {
       ListaEnvios Envios; 
       Envio envio;
-    
+      ListaPaquetes Paquetes = ListaPaquetes.getInstance();
+      ListaCliente Clientes = ListaCliente.getInstance();
     /**
      * Creates new form FrmEnvios
      */
@@ -274,8 +280,15 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-int cliente = Integer.parseInt(TxtCliente.getText());
-int paquete = Integer.parseInt(TxtPaquete.getText());
+Cliente cliente = Clientes.buscarCliente(Integer.parseInt(TxtCliente.getText()));
+Paquete paquete = Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText()));
+
+if(Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).getEstado() == EnumEstadoPaquete.Almacenado){
+   Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).setEstado(EnumEstadoPaquete.Despachado);
+}else{
+    JOptionPane.showMessageDialog(this, "El paquete ya ha sido despachado","Error del registro de paquete",JOptionPane.ERROR_MESSAGE);
+}
+
 String ruta = TxtRuta.getText();
 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
 LocalDate fechaEnvio = LocalDate.parse(TxtFEnvio.getText(), formatter);
@@ -287,8 +300,8 @@ Envios.agregar(envio);
 
 // Mostrar un mensaje de confirmación con los datos del envío
 JOptionPane.showMessageDialog(this, "Envío agregado:\n" +
-    "Cliente (Cédula): " + cliente + "\n" +
-    "Paquete: " + paquete + "\n" +
+    "Cliente (Cédula): " + cliente.getCedula() + "\n" +
+    "Paquete: " + paquete.getCodigo() + "\n" +
     "Ruta: " + ruta + "\n" +
     "Fecha de Envío: " + fechaEnvio + "\n" +
     "Fecha de Entrega: " + fechaEntrega + "\n" +
