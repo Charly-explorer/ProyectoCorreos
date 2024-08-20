@@ -1,17 +1,15 @@
 package Envios;
 
-import Paquetes.Paquete;
-import Personas.Cliente;
-import Rutas.Ruta;
+
 import java.time.LocalDate;
 
 
 public class Envio {
     
     private int numeroEnvio;
-    private Cliente cliente;
-    private Paquete paquete;
-    private Ruta ruta;
+    private int cliente;
+    private int paquete;
+    private String ruta;
     private LocalDate fechaEnvio;
     private LocalDate fechaEntrega;
     private double precio;
@@ -22,15 +20,15 @@ public class Envio {
         return numeroEnvio;
     }
 
-    public Cliente getCliente() {
+    public int getCliente() {
         return cliente;
     }
 
-    public Paquete getPaquete() {
+    public int getPaquete() {
         return paquete;
     }
 
-    public Ruta getRuta() {
+    public String getRuta() {
         return ruta;
     }
 
@@ -59,7 +57,7 @@ public class Envio {
     }
 
     
-    public Envio(int numeroEnvio, Cliente cliente, Paquete paquete, Ruta ruta, LocalDate fechaEnvio, LocalDate fechaEntrega, double precio) {
+    public Envio(int cliente, int paquete, String ruta, LocalDate fechaEnvio, LocalDate fechaEntrega, double precio) {
         this.numeroEnvio = cont++;
         this.cliente = cliente;
         this.paquete = paquete;
@@ -70,7 +68,7 @@ public class Envio {
     }
 
     public Envio() {
-        this(0,new Cliente(),new Paquete(),new Ruta(),LocalDate.now(),LocalDate.now(),0);
+        this(0,0,"",LocalDate.now(),LocalDate.now(),0);
     }
 
     @Override

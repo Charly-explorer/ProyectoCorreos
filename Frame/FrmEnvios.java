@@ -4,20 +4,30 @@
  */
 package Frame;
 
+import Envios.Envio;
 import static Frame.FrmBuscarRutas.BtnEliminarRuta;
 import static Frame.FrmBuscarRutas.BtnObtenerRuta;
+import Listas.ListaEnvios;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author thyfa
  */
 public class FrmEnvios extends javax.swing.JInternalFrame {
-
+      ListaEnvios Envios; 
+      Envio envio;
+    
     /**
      * Creates new form FrmEnvios
      */
     public FrmEnvios() {
         initComponents();
+        Envios = ListaEnvios.getInstance();
+        
     }
 
     /**
@@ -264,7 +274,33 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-     
+int cliente = Integer.parseInt(TxtCliente.getText());
+int paquete = Integer.parseInt(TxtPaquete.getText());
+String ruta = TxtRuta.getText();
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+LocalDate fechaEnvio = LocalDate.parse(TxtFEnvio.getText(), formatter);
+LocalDate fechaEntrega = LocalDate.parse(TxtFEntrega.getText(), formatter);
+double costoEnvio = Double.parseDouble(TxtCostoEnvio.getText());
+
+envio = new Envio(cliente, paquete, ruta, fechaEnvio, fechaEntrega, costoEnvio);
+Envios.agregar(envio);
+
+// Mostrar un mensaje de confirmación con los datos del envío
+JOptionPane.showMessageDialog(this, "Envío agregado:\n" +
+    "Cliente (Cédula): " + cliente + "\n" +
+    "Paquete: " + paquete + "\n" +
+    "Ruta: " + ruta + "\n" +
+    "Fecha de Envío: " + fechaEnvio + "\n" +
+    "Fecha de Entrega: " + fechaEntrega + "\n" +
+    "Costo de Envío: " + costoEnvio);
+
+// Limpiar los campos después de agregar el envío
+TxtCliente.setText("");
+TxtPaquete.setText("");
+TxtRuta.setText("");
+TxtFEnvio.setText("");
+TxtFEntrega.setText("");
+TxtCostoEnvio.setText("");     
         
         
         
