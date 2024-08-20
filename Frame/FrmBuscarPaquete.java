@@ -240,8 +240,8 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
             try {
                 DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
 
-                String nombre = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 1));
-                TxtPaquete.setText(nombre);
+                String codigo = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 0));
+                TxtPaquete.setText(codigo);
                 String peso = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 2));
                 TxtCostoEnvio.setText(peso);
 
