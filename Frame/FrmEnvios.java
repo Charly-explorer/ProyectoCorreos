@@ -4,21 +4,36 @@
  */
 package Frame;
 
+import Envios.Envio;
 import static Frame.FrmBuscarRutas.BtnEliminarRuta;
 import static Frame.FrmBuscarRutas.BtnObtenerRuta;
-import static Frame.FrmMenu.jDesktopCorreo;
+import Listas.ListaCliente;
+import Listas.ListaEnvios;
+import Listas.ListaPaquetes;
+import Paquetes.EnumEstadoPaquete;
+import Paquetes.Paquete;
+import Personas.Cliente;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author thyfa
  */
 public class FrmEnvios extends javax.swing.JInternalFrame {
-
+      ListaEnvios Envios; 
+      Envio envio;
+      ListaPaquetes Paquetes = ListaPaquetes.getInstance();
+      ListaCliente Clientes = ListaCliente.getInstance();
     /**
      * Creates new form FrmEnvios
      */
     public FrmEnvios() {
         initComponents();
+        Envios = ListaEnvios.getInstance();
+        
     }
 
     /**
@@ -288,13 +303,46 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtRutaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      FrmBuscarEnvio newBuscarenvio= new FrmBuscarEnvio(null,true);
+        FrmBuscarEnvio newBuscarenvio= new FrmBuscarEnvio(null,true);
         newBuscarenvio.setLocationRelativeTo(null);
         newBuscarenvio.setVisible(true); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-     
+Cliente cliente = Clientes.buscarCliente(Integer.parseInt(TxtCliente.getText()));
+Paquete paquete = Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText()));
+
+if(Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).getEstado() == EnumEstadoPaquete.Almacenado){
+   Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).setEstado(EnumEstadoPaquete.Despachado);
+}else{
+    JOptionPane.showMessageDialog(this, "El paquete ya ha sido despachado","Error del registro de paquete",JOptionPane.ERROR_MESSAGE);
+}
+
+String ruta = TxtRuta.getText();
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+LocalDate fechaEnvio = LocalDate.parse(TxtFEnvio.getText(), formatter);
+LocalDate fechaEntrega = LocalDate.parse(TxtFEntrega.getText(), formatter);
+double costoEnvio = Double.parseDouble(TxtCostoEnvio.getText());
+
+envio = new Envio(cliente, paquete, ruta, fechaEnvio, fechaEntrega, costoEnvio);
+Envios.agregar(envio);
+
+// Mostrar un mensaje de confirmación con los datos del envío
+JOptionPane.showMessageDialog(this, "Envío agregado:\n" +
+    "Cliente (Cédula): " + cliente.getCedula() + "\n" +
+    "Paquete: " + paquete.getCodigo() + "\n" +
+    "Ruta: " + ruta + "\n" +
+    "Fecha de Envío: " + fechaEnvio + "\n" +
+    "Fecha de Entrega: " + fechaEntrega + "\n" +
+    "Costo de Envío: " + costoEnvio);
+
+// Limpiar los campos después de agregar el envío
+TxtCliente.setText("");
+TxtPaquete.setText("");
+TxtRuta.setText("");
+TxtFEnvio.setText("");
+TxtFEntrega.setText("");
+TxtCostoEnvio.setText("");     
         
         
         

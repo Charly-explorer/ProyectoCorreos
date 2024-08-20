@@ -5,6 +5,7 @@
 package Frame;
 
 import static Frame.FrmBuscarPaquete.BtnObtenerPaquete;
+import static Frame.FrmBuscarRemitente.btnAdd;
 import Listas.ListaPaquetes;
 import Paquetes.Paquete;
 import Personas.Destinatario;
@@ -342,6 +343,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         FrmBuscarRemitente newBuscarRutas = new FrmBuscarRemitente(null, true);
         newBuscarRutas.setLocationRelativeTo(null);
+        btnAdd.setVisible(true);
         newBuscarRutas.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

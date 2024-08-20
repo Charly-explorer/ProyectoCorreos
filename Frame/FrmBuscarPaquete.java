@@ -240,10 +240,17 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
             try {
                 DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
 
-                String nombre = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 1));
-                TxtPaquete.setText(nombre);
-                String peso = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 2));
-                TxtCostoEnvio.setText(peso);
+                String codigo = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 0));
+                TxtPaquete.setText(codigo);
+                double peso = Double.parseDouble(String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 2)));
+                double precio;
+                if (peso>1.1) {
+                    precio = ((peso-1) * 1200)+2100;
+                }else{
+                    precio = peso * 2100;
+                }
+                
+                TxtCostoEnvio.setText(String.valueOf(precio));
 
             } catch (Exception e) {
 

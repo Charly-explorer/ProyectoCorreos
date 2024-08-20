@@ -1,8 +1,8 @@
 package Envios;
 
+
 import Paquetes.Paquete;
 import Personas.Cliente;
-import Rutas.Ruta;
 import java.time.LocalDate;
 
 
@@ -11,12 +11,12 @@ public class Envio {
     private int numeroEnvio;
     private Cliente cliente;
     private Paquete paquete;
-    private Ruta ruta;
+    private String ruta;
     private LocalDate fechaEnvio;
     private LocalDate fechaEntrega;
     private double precio;
     
-    private static int cont = 0;
+    private static int cont = 1;
 
     public int getNumeroEnvio() {
         return numeroEnvio;
@@ -30,7 +30,7 @@ public class Envio {
         return paquete;
     }
 
-    public Ruta getRuta() {
+    public String getRuta() {
         return ruta;
     }
 
@@ -59,7 +59,7 @@ public class Envio {
     }
 
     
-    public Envio(int numeroEnvio, Cliente cliente, Paquete paquete, Ruta ruta, LocalDate fechaEnvio, LocalDate fechaEntrega, double precio) {
+    public Envio(Cliente cliente, Paquete paquete, String ruta, LocalDate fechaEnvio, LocalDate fechaEntrega, double precio) {
         this.numeroEnvio = cont++;
         this.cliente = cliente;
         this.paquete = paquete;
@@ -70,7 +70,7 @@ public class Envio {
     }
 
     public Envio() {
-        this(0,new Cliente(),new Paquete(),new Ruta(),LocalDate.now(),LocalDate.now(),0);
+        this(new Cliente(),new Paquete(),"",LocalDate.now(),LocalDate.now(),0);
     }
 
     @Override
