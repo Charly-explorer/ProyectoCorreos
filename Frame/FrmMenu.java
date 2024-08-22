@@ -4,6 +4,7 @@
  */
 package Frame;
 
+import static Frame.FrmEnvios.btnAgregarCliente;
 import javax.swing.JFrame;
 
 /**
@@ -196,6 +197,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void btnGestionarEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEnviosActionPerformed
         FrmEnvios newFrmEnvios= new FrmEnvios();
+        btnAgregarCliente.setVisible(false);
         newFrmEnvios.setVisible(true);
         this.jDesktopCorreo.add(newFrmEnvios);
     }//GEN-LAST:event_btnGestionarEnviosActionPerformed

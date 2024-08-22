@@ -14,16 +14,19 @@ import Listas.ListaPaquetes;
 import Paquetes.EnumEstadoPaquete;
 import Paquetes.Paquete;
 import Personas.Cliente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
  * @author thyfa
  */
 public class FrmEnvios extends javax.swing.JInternalFrame {
-
+    private static Timer timer;
     ListaEnvios Envios;
     Envio envio;
     ListaPaquetes Paquetes = ListaPaquetes.getInstance();
@@ -35,7 +38,22 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     public FrmEnvios() {
         initComponents();
         Envios = ListaEnvios.getInstance();
+        
+        ActionListener validateAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                validarCliente();
+            }
+        };
+        timer = new Timer(2000, validateAction);
+        timer.setRepeats(false); 
+    }
 
+    public void validarCliente() {
+        if (Clientes.buscarCliente(Integer.parseInt(TxtCliente.getText())) == null) {
+            JOptionPane.showMessageDialog(this, "El Cliente no se encuentra registrado registre un nuevo cliente", "Error al encontrar de cliente", JOptionPane.WARNING_MESSAGE);
+            btnAgregarCliente.setVisible(true);
+        }
     }
 
     /**
@@ -67,7 +85,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAgregarCliente = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -99,22 +117,22 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3))
         );
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
-        jLabel2.setText("Cliente");
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
+        jLabel2.setText("Cedula Cliente");
 
-        jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel4.setText("Paquete");
 
-        jLabel5.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel5.setText("Ruta");
 
-        jLabel6.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel6.setText("Fecha Envio");
 
-        jLabel7.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel7.setText("Fecha Entrega");
 
-        jLabel9.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel9.setText("Costo de envio");
 
         TxtCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +141,9 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             }
         });
         TxtCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtClienteKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtClienteKeyTyped(evt);
             }
@@ -192,10 +213,15 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarCliente.setText("Agregar nuevo cliente");
+        btnAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAgregarClienteActionPerformed(evt);
+            }
+        });
+        btnAgregarCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnAgregarClienteKeyReleased(evt);
             }
         });
 
@@ -224,18 +250,16 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
                             .addComponent(jButton4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jButton1))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAgregarCliente)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +270,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnAgregarCliente))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -372,18 +396,19 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCostoEnvioActionPerformed
 
     private void TxtClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClienteKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
-            evt.consume();
+//        char c = evt.getKeyChar();
+//        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+//            evt.consume();
     }//GEN-LAST:event_TxtClienteKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
+        
         FrmCliente registroEnvios = new FrmCliente();
         jDesktopCorreo.add(registroEnvios);
         registroEnvios.setVisible(true);
 
 //        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
     private void TxtFEnvioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFEnvioKeyTyped
         char c = evt.getKeyChar();
@@ -401,6 +426,13 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtFEntregaKeyTyped
 
+    private void btnAgregarClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAgregarClienteKeyReleased
+        
+    }//GEN-LAST:event_btnAgregarClienteKeyReleased
+
+    private void TxtClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClienteKeyReleased
+       timer.restart();
+    }//GEN-LAST:event_TxtClienteKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtCliente;
@@ -410,7 +442,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField TxtPaquete;
     public static javax.swing.JTextField TxtRuta;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton jButton1;
+    public static javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

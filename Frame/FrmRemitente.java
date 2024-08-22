@@ -4,6 +4,7 @@
  */
 package Frame;
 
+import static Frame.FrmBuscarRemitente.btnAdd;
 import Listas.ListaRemitente;
 import Personas.Remitente;
 import javax.swing.JOptionPane;
@@ -194,6 +195,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         FrmBuscarRemitente newBuscarRutas = new FrmBuscarRemitente(null, true);
         newBuscarRutas.setLocationRelativeTo(null);
+        btnAdd.setVisible(false);
         newBuscarRutas.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
