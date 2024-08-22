@@ -375,8 +375,10 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtNombreKeyTyped
 
     private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
-         char c= evt.getKeyChar();
-          if(c<'0'||c>'9')evt.consume();
+       char c = evt.getKeyChar();
+        if ((c < '0' || c > '9') && c != '-') {
+            evt.consume();
+        }
 
     }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
 

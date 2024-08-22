@@ -133,6 +133,11 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         });
 
         TxtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        TxtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtNombreActionPerformed(evt);
+            }
+        });
         TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNombreKeyTyped(evt);
@@ -365,6 +370,10 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         validarFechaNacimiento(TxtFechaNacimiento);
 
     }//GEN-LAST:event_TxtFechaNacimientoFocusLost
+
+    private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
