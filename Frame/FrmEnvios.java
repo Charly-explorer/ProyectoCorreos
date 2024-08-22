@@ -7,6 +7,7 @@ package Frame;
 import Envios.Envio;
 import static Frame.FrmBuscarRutas.BtnEliminarRuta;
 import static Frame.FrmBuscarRutas.BtnObtenerRuta;
+import static Frame.FrmMenu.jDesktopCorreo;
 import Listas.ListaCliente;
 import Listas.ListaEnvios;
 import Listas.ListaPaquetes;
