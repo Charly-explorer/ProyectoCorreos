@@ -372,7 +372,6 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
             evt.consume();
         }
 
-    }
     }//GEN-LAST:event_TxtDescripcionKeyTyped
 
     private void TxtNombreDestinatarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreDestinatarioKeyTyped

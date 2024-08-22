@@ -224,11 +224,6 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 btnAgregarClienteActionPerformed(evt);
             }
         });
-        btnAgregarCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                btnAgregarClienteKeyReleased(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -406,7 +401,14 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TxtClienteKeyTyped
-
+    
+    
+    private void TxtClienteKeyReleased(java.awt.event.KeyEvent evt) {
+       timer.restart();
+    }
+    
+    
+    
     private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
         
         FrmCliente registroEnvios = new FrmCliente();
