@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Frame;
 
+import Frame.FrmBuscarPaquete;
 import static Frame.FrmBuscarPaquete.BtnObtenerPaquete;
+import Frame.FrmBuscarRemitente;
 import static Frame.FrmBuscarRemitente.btnAdd;
 import Listas.ListaPaquetes;
 import Paquetes.Paquete;
