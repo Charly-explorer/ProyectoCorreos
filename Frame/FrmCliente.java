@@ -40,12 +40,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                 return;
             }
 
-            int edad = Period.between(fechaNacimiento, fechaActual).getYears();
-
-            if (edad < 18) {
-                JOptionPane.showMessageDialog(null, "El cliente debe  ser mayor de 18 años.", "Error", JOptionPane.ERROR_MESSAGE);
-                textField.setText("");
-            }
+           
 
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(null, "Fecha no válida. Use el formato dd-MM-yyyy.", "Error", JOptionPane.ERROR_MESSAGE);
