@@ -16,9 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author thyfa
  */
+
 public class FrmPaquete extends javax.swing.JInternalFrame {
-      ListaPaquetes Paquetes;
-      Paquete paquete;
+
+    ListaPaquetes Paquetes;
+    Paquete paquete;
+
     /**
      * Creates new form FrmPaquete
      */
@@ -119,6 +122,12 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDescripcionKeyTyped(evt);
+            }
+        });
+
+        TxtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtPesoKeyTyped(evt);
             }
         });
 
@@ -296,48 +305,46 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
-         // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_TxtCodigoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-    
-    int codigo = Integer.parseInt(TxtCodigo.getText());
-    String descripcion = TxtDescripcion.getText();
-    double peso = Double.parseDouble(TxtPeso.getText());
-    String nombreDestinatario= TxtNombreDestinatario.getText();
-    int cedulaDestinatario = Integer.parseInt(TxtCedula.getText());
-    Destinatario destinatario = new Destinatario(nombreDestinatario,cedulaDestinatario);
-    String nombreRemitente = txtRemitente.getText();
-    int cedula = Integer.parseInt(txtRemitenteCedula.getText());
-    
-    Remitente newRemitente = new Remitente(nombreRemitente,cedula);
- 
-    paquete = new Paquete(descripcion,codigo,peso,destinatario,newRemitente);
-    Paquetes.agregar(paquete);
 
-   
-    JOptionPane.showMessageDialog(this, "Envío agregado:\n" +
-        "Código: " + codigo + "\n" +
-        "Descripción: " + descripcion + "\n" +  
-        "Peso: " + peso +"\n"+
-        "Destinatario"+nombreDestinatario+"\n"+
-        "Cedula"+ cedula+"\n"  );
-        
-    
-    TxtCodigo.setText("");
-    TxtDescripcion.setText("");
-    TxtPeso.setText("");
-    TxtNombreDestinatario.setText("");
-    TxtCedula.setText("");
-    txtRemitente.setText("");
-    txtRemitenteCedula.setText("");
+        int codigo = Integer.parseInt(TxtCodigo.getText());
+        String descripcion = TxtDescripcion.getText();
+        double peso = Double.parseDouble(TxtPeso.getText());
+        String nombreDestinatario = TxtNombreDestinatario.getText();
+        int cedulaDestinatario = Integer.parseInt(TxtCedula.getText());
+        Destinatario destinatario = new Destinatario(nombreDestinatario, cedulaDestinatario);
+        String nombreRemitente = txtRemitente.getText();
+        int cedula = Integer.parseInt(txtRemitenteCedula.getText());
+
+        Remitente newRemitente = new Remitente(nombreRemitente, cedula);
+
+        paquete = new Paquete(descripcion, codigo, peso, destinatario, newRemitente);
+        Paquetes.agregar(paquete);
+
+        JOptionPane.showMessageDialog(this, "Envío agregado:\n"
+                + "Código: " + codigo + "\n"
+                + "Descripción: " + descripcion + "\n"
+                + "Peso: " + peso + "\n"
+                + "Destinatario" + nombreDestinatario + "\n"
+                + "Cedula" + cedula + "\n");
+
+        TxtCodigo.setText("");
+        TxtDescripcion.setText("");
+        TxtPeso.setText("");
+        TxtNombreDestinatario.setText("");
+        TxtCedula.setText("");
+        txtRemitente.setText("");
+        txtRemitenteCedula.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        FrmBuscarPaquete newBuscarPaquete= new FrmBuscarPaquete(null,true);
+        FrmBuscarPaquete newBuscarPaquete = new FrmBuscarPaquete(null, true);
         newBuscarPaquete.setLocationRelativeTo(null);
         BtnObtenerPaquete.setVisible(false);
-        newBuscarPaquete.setVisible(true); 
+        newBuscarPaquete.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -356,18 +363,25 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtNombreDestinatarioActionPerformed
 
     private void TxtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyTyped
-          char c= evt.getKeyChar();
-          if(c<'0'||c>'9')evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_TxtCodigoKeyTyped
 
     private void TxtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDescripcionKeyTyped
-       char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != ' ') {
+            evt.consume();
+        }
+
+    }
     }//GEN-LAST:event_TxtDescripcionKeyTyped
 
     private void TxtNombreDestinatarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreDestinatarioKeyTyped
-       char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c != ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtNombreDestinatarioKeyTyped
 
     private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
@@ -375,9 +389,18 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCedulaActionPerformed
 
     private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
-          char c= evt.getKeyChar();
-          if(c<'0'||c>'9')evt.consume();
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9') && c != '.') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtCedulaKeyTyped
+
+    private void TxtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPesoKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9') && c != '.') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtPesoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -255,6 +255,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="TxtFechaNacimiento">
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtFechaNacimientoFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtFechaNacimientoActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtFechaNacimientoKeyTyped"/>
           </Events>

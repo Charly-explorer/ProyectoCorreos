@@ -154,6 +154,11 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 TxtPaqueteActionPerformed(evt);
             }
         });
+        TxtPaquete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtPaqueteKeyTyped(evt);
+            }
+        });
 
         TxtRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,9 +401,10 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCostoEnvioActionPerformed
 
     private void TxtClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClienteKeyTyped
-//        char c = evt.getKeyChar();
-//        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
-//            evt.consume();
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9')) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtClienteKeyTyped
 
     private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
@@ -426,13 +432,10 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtFEntregaKeyTyped
 
-    private void btnAgregarClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAgregarClienteKeyReleased
-        
-    }//GEN-LAST:event_btnAgregarClienteKeyReleased
+    private void TxtPaqueteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPaqueteKeyTyped
+       
+    }//GEN-LAST:event_TxtPaqueteKeyTyped
 
-    private void TxtClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClienteKeyReleased
-       timer.restart();
-    }//GEN-LAST:event_TxtClienteKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtCliente;

@@ -7,7 +7,6 @@ package Frame;
 import Personas.Cliente;
 import Listas.ListaCliente;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
@@ -39,8 +38,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                 textField.setText("");
                 return;
             }
-
-           
 
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(null, "Fecha no válida. Use el formato dd-MM-yyyy.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -324,7 +321,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
         char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') {
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
             evt.consume();
         }
 
@@ -355,7 +352,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
         char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') {
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != '@' && c != '.') {
             evt.consume();
         }
 

@@ -99,6 +99,11 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
                 cbDestinoActionPerformed(evt);
             }
         });
+        cbDestino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cbDestinoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,6 +174,13 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
         actualizarComboBox(cbDestino);
         cbDestino.setSelectedIndex(-1);
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void cbDestinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbDestinoKeyTyped
+       char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_cbDestinoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

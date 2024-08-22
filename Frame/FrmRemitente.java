@@ -200,8 +200,10 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNombreRemitenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreRemitenteKeyTyped
-       char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+      char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtNombreRemitenteKeyTyped
 
     private void txtCedulaRemitenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaRemitenteKeyTyped

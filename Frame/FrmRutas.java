@@ -331,13 +331,17 @@ public class FrmRutas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCodigoKeyTyped
 
     private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
-       char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+    char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c != ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtNombreKeyTyped
 
     private void TxtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDescripcionKeyTyped
-      char c= evt.getKeyChar();
-       if((c<'a'|| c>'z') && (c<'A')|c>'Z') evt.consume();
+      char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtDescripcionKeyTyped
 
     private void TxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCodigoActionPerformed
