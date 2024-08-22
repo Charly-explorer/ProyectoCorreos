@@ -52,13 +52,13 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         btnAgregar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         TxtNombreDestinatario = new javax.swing.JTextField();
-        TxtCedula = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtRemitente = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txtRemitenteCedula = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        TxtCedula = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -106,6 +106,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel6.setText("Destinatario");
 
+        TxtCodigo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCodigoActionPerformed(evt);
@@ -117,12 +118,14 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtDescripcion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDescripcionKeyTyped(evt);
             }
         });
 
+        TxtPeso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtPesoKeyTyped(evt);
@@ -143,6 +146,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtNombreDestinatario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtNombreDestinatario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreDestinatarioActionPerformed(evt);
@@ -154,21 +158,11 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
             }
         });
 
-        TxtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCedulaActionPerformed(evt);
-            }
-        });
-        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtCedulaKeyTyped(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Cedula");
 
         txtRemitente.setEditable(false);
+        txtRemitente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         txtRemitente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRemitenteActionPerformed(evt);
@@ -183,12 +177,20 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         });
 
         txtRemitenteCedula.setEditable(false);
+        txtRemitenteCedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Cedula");
 
         jLabel10.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel10.setText("Peso");
+
+        TxtCedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtCedula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,7 +206,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
                                 .addComponent(TxtNombreDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtCedula)
-                                .addGap(132, 132, 132))
+                                .addGap(126, 126, 126))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,8 +282,8 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
                     .addComponent(TxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(98, 98, 98)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, Short.MAX_VALUE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
@@ -381,17 +383,6 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_TxtNombreDestinatarioKeyTyped
 
-    private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCedulaActionPerformed
-
-    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && c != '.') {
-            evt.consume();
-        }
-    }//GEN-LAST:event_TxtCedulaKeyTyped
-
     private void TxtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPesoKeyTyped
         char c = evt.getKeyChar();
         if ((c < '0' || c > '9') && c != '.') {
@@ -401,7 +392,7 @@ public class FrmPaquete extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtCedula;
+    private javax.swing.JFormattedTextField TxtCedula;
     private javax.swing.JTextField TxtCodigo;
     private javax.swing.JTextField TxtDescripcion;
     private javax.swing.JTextField TxtNombreDestinatario;

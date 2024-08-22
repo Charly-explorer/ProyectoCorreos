@@ -75,17 +75,17 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        TxtCliente = new javax.swing.JTextField();
         TxtPaquete = new javax.swing.JTextField();
         TxtRuta = new javax.swing.JTextField();
-        TxtFEnvio = new javax.swing.JTextField();
-        TxtFEntrega = new javax.swing.JTextField();
         TxtCostoEnvio = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnAgregarCliente = new javax.swing.JButton();
+        TxtCliente = new javax.swing.JFormattedTextField();
+        TxtFEnvio = new javax.swing.JFormattedTextField();
+        TxtFEntrega = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -135,20 +135,7 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel9.setText("Costo de envio");
 
-        TxtCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtClienteActionPerformed(evt);
-            }
-        });
-        TxtCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtClienteKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtClienteKeyTyped(evt);
-            }
-        });
-
+        TxtPaquete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtPaquete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtPaqueteActionPerformed(evt);
@@ -160,30 +147,15 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtRuta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtRutaActionPerformed(evt);
             }
         });
 
-        TxtFEnvio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFEnvioActionPerformed(evt);
-            }
-        });
-        TxtFEnvio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtFEnvioKeyTyped(evt);
-            }
-        });
-
-        TxtFEntrega.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtFEntregaKeyTyped(evt);
-            }
-        });
-
         TxtCostoEnvio.setEditable(false);
+        TxtCostoEnvio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtCostoEnvio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCostoEnvioActionPerformed(evt);
@@ -225,6 +197,34 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtCliente.setMaximumSize(new java.awt.Dimension(70, 30));
+        TxtCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtClienteActionPerformed(evt);
+            }
+        });
+
+        TxtFEnvio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtFEnvio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        TxtFEntrega.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtFEntrega.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtFEntrega.setPreferredSize(new java.awt.Dimension(64, 22));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -233,33 +233,33 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(TxtCostoEnvio, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(TxtFEntrega)
-                            .addComponent(TxtFEnvio)
-                            .addComponent(TxtRuta)
-                            .addComponent(TxtPaquete)
-                            .addComponent(TxtCliente))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(btnAgregarCliente)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TxtFEntrega, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TxtFEnvio, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtCostoEnvio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(TxtRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtPaquete, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton4)
+                            .addComponent(btnAgregarCliente))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,8 +269,8 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarCliente))
+                    .addComponent(btnAgregarCliente)
+                    .addComponent(TxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,9 +289,9 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
                 .addComponent(TxtFEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TxtFEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TxtCostoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,10 +315,6 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TxtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtClienteActionPerformed
 
     private void TxtPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPaqueteActionPerformed
         // TODO add your handling code here:
@@ -387,20 +383,9 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
         newBuscarRutas.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void TxtFEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFEnvioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFEnvioActionPerformed
-
     private void TxtCostoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCostoEnvioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtCostoEnvioActionPerformed
-
-    private void TxtClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtClienteKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9')) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_TxtClienteKeyTyped
     
     
     private void TxtClienteKeyReleased(java.awt.event.KeyEvent evt) {
@@ -418,32 +403,20 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
 //        
     }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
-    private void TxtFEnvioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFEnvioKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && c != '-') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtFEnvioKeyTyped
-
-    private void TxtFEntregaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFEntregaKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && c != '-') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtFEntregaKeyTyped
-
     private void TxtPaqueteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPaqueteKeyTyped
        
     }//GEN-LAST:event_TxtPaqueteKeyTyped
 
+    private void TxtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtClienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtCliente;
+    private javax.swing.JFormattedTextField TxtCliente;
     public static javax.swing.JTextField TxtCostoEnvio;
-    private javax.swing.JTextField TxtFEntrega;
-    private javax.swing.JTextField TxtFEnvio;
+    private javax.swing.JFormattedTextField TxtFEntrega;
+    private javax.swing.JFormattedTextField TxtFEnvio;
     public static javax.swing.JTextField TxtPaquete;
     public static javax.swing.JTextField TxtRuta;
     private javax.swing.JButton btnAgregar;

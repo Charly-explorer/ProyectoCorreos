@@ -43,7 +43,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNombreRemitente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtCedulaRemitente = new javax.swing.JTextField();
+        txtCedulaRemitente = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -96,6 +96,8 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Nombre");
 
+        txtNombreRemitente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        txtNombreRemitente.setPreferredSize(new java.awt.Dimension(64, 23));
         txtNombreRemitente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreRemitenteKeyTyped(evt);
@@ -105,9 +107,16 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Cedula");
 
-        txtCedulaRemitente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCedulaRemitenteKeyTyped(evt);
+        txtCedulaRemitente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            txtCedulaRemitente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCedulaRemitente.setPreferredSize(new java.awt.Dimension(64, 22));
+        txtCedulaRemitente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaRemitenteActionPerformed(evt);
             }
         });
 
@@ -127,18 +136,18 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(txtNombreRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txtCedulaRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNombreRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedulaRemitente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,10 +215,9 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreRemitenteKeyTyped
 
-    private void txtCedulaRemitenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaRemitenteKeyTyped
-        char c= evt.getKeyChar();
-          if(c<'0'||c>'9')evt.consume();
-    }//GEN-LAST:event_txtCedulaRemitenteKeyTyped
+    private void txtCedulaRemitenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaRemitenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaRemitenteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -221,7 +229,7 @@ public class FrmRemitente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
-    public static javax.swing.JTextField txtCedulaRemitente;
+    private javax.swing.JFormattedTextField txtCedulaRemitente;
     public static javax.swing.JTextField txtNombreRemitente;
     // End of variables declaration//GEN-END:variables
 }

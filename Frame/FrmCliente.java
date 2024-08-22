@@ -63,13 +63,13 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TxtCedula = new javax.swing.JTextField();
         TxtNombre = new javax.swing.JTextField();
-        TxtFechaNacimiento = new javax.swing.JTextField();
-        TxtTelefono = new javax.swing.JTextField();
         TxtCorreo = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        TxtCedula = new javax.swing.JFormattedTextField();
+        TxtFechaNacimiento = new javax.swing.JFormattedTextField();
+        TxtTelefono = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -112,19 +112,8 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Correo");
 
-        TxtCedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
-        TxtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCedulaActionPerformed(evt);
-            }
-        });
-        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtCedulaKeyTyped(evt);
-            }
-        });
-
-        TxtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        TxtNombre.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtNombre.setPreferredSize(new java.awt.Dimension(64, 22));
         TxtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtNombreActionPerformed(evt);
@@ -136,31 +125,8 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        TxtFechaNacimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
-        TxtFechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                TxtFechaNacimientoFocusLost(evt);
-            }
-        });
-        TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFechaNacimientoActionPerformed(evt);
-            }
-        });
-        TxtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtFechaNacimientoKeyTyped(evt);
-            }
-        });
-
-        TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
-        TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtTelefonoKeyTyped(evt);
-            }
-        });
-
         TxtCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtCorreo.setPreferredSize(new java.awt.Dimension(64, 22));
         TxtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtCorreoKeyTyped(evt);
@@ -186,6 +152,34 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtCedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtCedula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtCedula.setPreferredSize(new java.awt.Dimension(64, 22));
+        TxtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCedulaActionPerformed(evt);
+            }
+        });
+
+        TxtFechaNacimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtTelefono.setPreferredSize(new java.awt.Dimension(64, 22));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,19 +192,20 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(TxtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                        .addComponent(TxtCedula, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(TxtCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                                .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(93, 93, 93)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(TxtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TxtCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,25 +216,25 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addComponent(TxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addGap(14, 14, 14)
                         .addComponent(jLabel5)
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -265,10 +260,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCedulaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // Recoger los datos de los campos
@@ -311,14 +302,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnBuscarMouseClicked
 
-    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtCedulaKeyTyped
-
     private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
         char c = evt.getKeyChar();
         if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
@@ -328,28 +311,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtNombreKeyTyped
 
-    private void TxtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFechaNacimientoActionPerformed
-
-    private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && c != '-') {
-            evt.consume();
-        }
-
-
-    }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
-
-    private void TxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-
-
-    }//GEN-LAST:event_TxtTelefonoKeyTyped
-
     private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
         char c = evt.getKeyChar();
         if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && c != '@' && c != '.') {
@@ -358,22 +319,21 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtCorreoKeyTyped
 
-    private void TxtFechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoFocusLost
-        validarFechaNacimiento(TxtFechaNacimiento);
-
-    }//GEN-LAST:event_TxtFechaNacimientoFocusLost
-
     private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNombreActionPerformed
 
+    private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCedulaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtCedula;
+    private javax.swing.JFormattedTextField TxtCedula;
     private javax.swing.JTextField TxtCorreo;
-    private javax.swing.JTextField TxtFechaNacimiento;
+    private javax.swing.JFormattedTextField TxtFechaNacimiento;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JFormattedTextField TxtTelefono;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;

@@ -60,17 +60,17 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        TxtCedula = new javax.swing.JTextField();
         TxtNombre = new javax.swing.JTextField();
-        TxtFechaNacimiento = new javax.swing.JTextField();
         TxtCorreo = new javax.swing.JTextField();
-        TxtTelefono = new javax.swing.JTextField();
-        TxtPuesto = new javax.swing.JTextField();
         TxtSalario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnAgregarEmpleado = new javax.swing.JButton();
         btnBuscarEmpleado = new javax.swing.JButton();
+        TxtCedula = new javax.swing.JFormattedTextField();
+        TxtFechaNacimiento = new javax.swing.JFormattedTextField();
+        TxtTelefono = new javax.swing.JFormattedTextField();
+        cbPuesto = new javax.swing.JComboBox<>();
 
         setClosable(true);
 
@@ -90,71 +90,48 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton1)
+                .addGap(14, 14, 14))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel1.setText("Cedula");
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel4.setText("Fecha Nacimiento");
 
-        jLabel5.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel5.setText("Correo");
 
-        jLabel7.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel7.setText("Puesto");
 
-        jLabel8.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel8.setText("Salario");
 
-        TxtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCedulaActionPerformed(evt);
-            }
-        });
-        TxtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtCedulaKeyTyped(evt);
-            }
-        });
-
+        TxtNombre.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtNombre.setPreferredSize(new java.awt.Dimension(64, 23));
         TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNombreKeyTyped(evt);
             }
         });
 
-        TxtFechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                TxtFechaNacimientoFocusLost(evt);
-            }
-        });
-        TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFechaNacimientoActionPerformed(evt);
-            }
-        });
-        TxtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtFechaNacimientoKeyTyped(evt);
-            }
-        });
-
+        TxtCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCorreoActionPerformed(evt);
@@ -166,30 +143,15 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtTelefonoKeyTyped(evt);
-            }
-        });
-
-        TxtPuesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtPuestoActionPerformed(evt);
-            }
-        });
-        TxtPuesto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                TxtPuestoKeyTyped(evt);
-            }
-        });
-
+        TxtSalario.setEditable(false);
+        TxtSalario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         TxtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtSalarioKeyTyped(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel6.setText("Telefono");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -219,6 +181,38 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
+        TxtCedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtCedula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtCedula.setPreferredSize(new java.awt.Dimension(64, 22));
+
+        TxtFechaNacimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        TxtFechaNacimiento.setPreferredSize(new java.awt.Dimension(64, 23));
+
+        TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        try {
+            TxtTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        cbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensajero", "Gestor de Servicios Logísticos", "Gestor de Ventas", "Auxiliar Postal", "Ingeniero en Sistemas" }));
+        cbPuesto.setSelectedIndex(-1);
+        cbPuesto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        cbPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPuestoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -228,32 +222,38 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
-                            .addComponent(TxtCedula)
-                            .addComponent(TxtNombre)
-                            .addComponent(TxtFechaNacimiento)
-                            .addComponent(TxtCorreo)
-                            .addComponent(TxtTelefono)
-                            .addComponent(TxtPuesto))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TxtSalario)
-                        .addGap(82, 82, 82))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(65, 65, 65))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel6)
+                                            .addComponent(TxtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(TxtCorreo))
+                                        .addGap(33, 33, 33))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,44 +261,47 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 4, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -320,18 +323,6 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtPuestoActionPerformed
-
-    private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCedulaActionPerformed
-
-    private void TxtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFechaNacimientoActionPerformed
-
     private void TxtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtCorreoActionPerformed
@@ -344,7 +335,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         LocalDate fechaNacimiento = LocalDate.parse(TxtFechaNacimiento.getText(), formatter);
         int telefono = Integer.parseInt(TxtTelefono.getText());
         String correo = TxtCorreo.getText();
-        String puesto = TxtPuesto.getText();
+        String puesto = cbPuesto.getSelectedItem().toString();
         double salario = Double.parseDouble(TxtSalario.getText());
 
         empleado = new Empleado(puesto, salario, telefono, correo, fechaNacimiento, nombre, cedula);
@@ -366,7 +357,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         TxtFechaNacimiento.setText("");
         TxtTelefono.setText("");
         TxtCorreo.setText("");
-        TxtPuesto.setText("");
+        cbPuesto.setSelectedIndex(-1);
         TxtSalario.setText("");
 
 
@@ -379,29 +370,13 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
 
-    private void TxtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedulaKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtCedulaKeyTyped
-
     private void TxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyTyped
         char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c != ' ') {
             evt.consume();
         }
 
     }//GEN-LAST:event_TxtNombreKeyTyped
-
-    private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && (c != '-')) {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
 
     private void TxtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCorreoKeyTyped
         char c = evt.getKeyChar();
@@ -412,22 +387,6 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtCorreoKeyTyped
 
-    private void TxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtTelefonoKeyTyped
-
-    private void TxtPuestoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPuestoKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z') {
-            evt.consume();
-        }
-
-    }//GEN-LAST:event_TxtPuestoKeyTyped
-
     private void TxtSalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtSalarioKeyTyped
         char c = evt.getKeyChar();
         if (c < '0' || c > '9') {
@@ -436,21 +395,37 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_TxtSalarioKeyTyped
 
-    private void TxtFechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoFocusLost
-        validarFechaNacimiento(TxtFechaNacimiento);
-    }//GEN-LAST:event_TxtFechaNacimientoFocusLost
+    private void cbPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPuestoActionPerformed
+        switch (cbPuesto.getSelectedItem().toString()) {
+            case "Mensajero":
+                TxtSalario.setText("400000");
+                break;
+            case "Gestor de Servicios Logísticos":
+                TxtSalario.setText("450000");
+                break;
+            case "Gestor de Ventas":
+                TxtSalario.setText("650000");
+                break;
+            case "Auxiliar Postal":
+                TxtSalario.setText("550000");
+                break;
+            case "Ingeniero en Sistemas":
+                TxtSalario.setText("1200000 ");
+                break;
+        }
+    }//GEN-LAST:event_cbPuestoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtCedula;
+    private javax.swing.JFormattedTextField TxtCedula;
     private javax.swing.JTextField TxtCorreo;
-    private javax.swing.JTextField TxtFechaNacimiento;
+    private javax.swing.JFormattedTextField TxtFechaNacimiento;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtPuesto;
     private javax.swing.JTextField TxtSalario;
-    private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JFormattedTextField TxtTelefono;
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnBuscarEmpleado;
+    private javax.swing.JComboBox<String> cbPuesto;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
