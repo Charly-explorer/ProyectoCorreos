@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class FrmBuscarRutas extends javax.swing.JDialog {
 
     ListaRuta Rutas = ListaRuta.getInstance();
-    
+
     public FrmBuscarRutas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -263,8 +263,22 @@ public class FrmBuscarRutas extends javax.swing.JDialog {
 
     private void BtnEliminarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarRutaActionPerformed
         int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        ListaRuta.getInstance().eliminar(codigo);
-        cargar();
+
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente desea eliminar la ruta " + ListaRuta.getInstance().buscar(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString()).getNombre() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            ListaRuta.getInstance().eliminar(codigo);
+            cargar();
+            JOptionPane.showMessageDialog(this, "Ruta Eliminada:\n" + ListaRuta.getInstance().buscar(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString()).getNombre(), "Eliminacion de ruta", JOptionPane.ERROR_MESSAGE);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+
+        } else {
+
+        }
+
+
     }//GEN-LAST:event_BtnEliminarRutaActionPerformed
 
     private void TxtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreKeyReleased
@@ -272,22 +286,21 @@ public class FrmBuscarRutas extends javax.swing.JDialog {
     }//GEN-LAST:event_TxtNombreKeyReleased
 
     private void BtnObtenerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnObtenerRutaActionPerformed
-        if (jTable1.getSelectedRow()>=0){
-           try{
-               DefaultTableModel tm = (DefaultTableModel)jTable1.getModel();
-               
-               String nombre= String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),1));
-               TxtRuta.setText(nombre);
-               
-           
-           } catch(Exception e){
-               
-           }
-           
-       }else{
-           JOptionPane.showMessageDialog(this,"Debe de escoger un remitente","Agregue",JOptionPane.WARNING_MESSAGE);
-       }
-       this.dispose();
+        if (jTable1.getSelectedRow() >= 0) {
+            try {
+                DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
+
+                String nombre = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 1));
+                TxtRuta.setText(nombre);
+
+            } catch (Exception e) {
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe de escoger un remitente", "Agregue", JOptionPane.WARNING_MESSAGE);
+        }
+        this.dispose();
     }//GEN-LAST:event_BtnObtenerRutaActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

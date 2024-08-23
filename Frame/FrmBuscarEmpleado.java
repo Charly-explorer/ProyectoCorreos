@@ -3,12 +3,13 @@ package Frame;
 import Listas.ListaCliente;
 import Personas.Empleado;
 import Listas.ListaEmpleado;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmBuscarEmpleado extends javax.swing.JDialog {
-    
+
     ListaEmpleado Empleados = ListaEmpleado.getInstance();
-    
+
     public FrmBuscarEmpleado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -198,8 +199,19 @@ public class FrmBuscarEmpleado extends javax.swing.JDialog {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int cedula = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        ListaEmpleado.getInstance().eliminarEmpleado(cedula);
-        cargar();
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente desea eliminar al empleado " + ListaEmpleado.getInstance().buscarEmpleado(cedula).getNombre() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            ListaEmpleado.getInstance().eliminarEmpleado(cedula);
+            cargar();
+            JOptionPane.showMessageDialog(this, "Empleado Eliminado:\n" + ListaEmpleado.getInstance().buscarEmpleado(cedula).getNombre(), "Eliminacion de Empleado", JOptionPane.ERROR_MESSAGE);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+            
+        } else {
+            
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

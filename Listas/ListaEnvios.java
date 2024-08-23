@@ -33,17 +33,21 @@ public class ListaEnvios {
         listaEnvios.add(envio);
     }
 
-    public void eliminar() {
-        listaEnvios.remove();
+    public void eliminar(int codigo) {
+        for (Envio envio1 : listaEnvios) {
+            if (envio1.getNumeroEnvio() == codigo) {
+                listaEnvios.remove(envio1);
+            }
+        }
     }
 
     public void obtenerPrimero() {
         listaEnvios.peek();
     }
 
-    public Envio obtenerEnvio(Envio envio) {
+    public Envio obtenerEnvio(int num) {
         for (Envio envio1 : listaEnvios) {
-            if (envio.getNumeroEnvio() == envio1.getNumeroEnvio()) {
+            if (num == envio1.getNumeroEnvio()) {
                 return envio1;
             }
 

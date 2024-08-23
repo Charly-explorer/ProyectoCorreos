@@ -169,15 +169,28 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        destinos.eliminar(cbDestino.getSelectedItem().toString().toUpperCase());
-        JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(),"Eliminacion de destino",JOptionPane.ERROR_MESSAGE);
-        actualizarComboBox(cbDestino);
-        cbDestino.setSelectedIndex(-1);
+
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente desea eliminar el destino " + cbDestino.getSelectedItem().toString() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            destinos.eliminar(cbDestino.getSelectedItem().toString().toUpperCase());
+            cbDestino.setSelectedIndex(-1);
+            JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(), "Eliminacion de destino", JOptionPane.ERROR_MESSAGE);
+            actualizarComboBox(cbDestino);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+
+        } else {
+
+        }
+
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cbDestinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbDestinoKeyTyped
-       char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c!= ' ') {
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && c != ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_cbDestinoKeyTyped

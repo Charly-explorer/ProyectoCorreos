@@ -17,10 +17,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author thyfa
  */
-
 public class FrmBuscarPaquete extends javax.swing.JDialog {
-    
+
     ListaPaquetes Paquetes = ListaPaquetes.getInstance();
+
     /**
      * Creates new form BuscarPaquete
      */
@@ -29,7 +29,7 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         initComponents();
         cargar();
     }
-    
+
     private void cargar() {
         DefaultTableModel model
                 = (DefaultTableModel) jTable1.getModel();
@@ -45,7 +45,8 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                 objeto.getDescripcion(),
                 objeto.getPeso(),
                 objeto.getRemitente().getNombre(),
-                objeto.getDestinatario().getNombre()};
+                objeto.getDestinatario().getNombre(),
+                objeto.getEstado().toString()};
             model.addRow(datos);
         }
         jTable1.setModel(model);
@@ -104,20 +105,20 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Peso", "Remitente", "Destinatario"
+                "Codigo", "Descripcion", "Peso", "Remitente", "Destinatario", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -234,8 +235,18 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        ListaPaquetes.getInstance().eliminar(codigo);
-        cargar();
+
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente deseas eliminar este paquete " + ListaPaquetes.getInstance().buscarPaquete(codigo) + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            ListaPaquetes.getInstance().eliminar(codigo);
+            cargar();
+            JOptionPane.showMessageDialog(this, "Paquete Eliminado:\n" + ListaPaquetes.getInstance().buscarPaquete(codigo), "Eliminacion de Paquete", JOptionPane.ERROR_MESSAGE);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+        } else {   
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void TxtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodigoKeyReleased
@@ -251,12 +262,12 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                 TxtPaquete.setText(codigo);
                 double peso = Double.parseDouble(String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 2)));
                 double precio;
-                if (peso>1.1) {
-                    precio = ((peso-1) * 1200)+2100;
-                }else{
+                if (peso > 1.1) {
+                    precio = ((peso - 1) * 1200) + 2100;
+                } else {
                     precio = peso * 2100;
                 }
-                
+
                 TxtCostoEnvio.setText(String.valueOf(precio));
 
             } catch (Exception e) {
@@ -269,39 +280,39 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_BtnObtenerPaqueteActionPerformed
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
-            }
-        }
-    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-
-    //</editor-fold>
-
-    /* Create and display the dialog */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
-            FrmBuscarPaquete dialog = new FrmBuscarPaquete(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
                 }
-            });
-            dialog.setVisible(true);
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    });
-}
+        //</editor-fold>
+
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                FrmBuscarPaquete dialog = new FrmBuscarPaquete(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton BtnObtenerPaquete;

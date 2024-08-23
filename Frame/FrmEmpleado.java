@@ -132,6 +132,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         });
 
         TxtCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtCorreo.setPreferredSize(new java.awt.Dimension(64, 22));
         TxtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCorreoActionPerformed(evt);
@@ -145,6 +146,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
         TxtSalario.setEditable(false);
         TxtSalario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
+        TxtSalario.setPreferredSize(new java.awt.Dimension(64, 22));
         TxtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtSalarioKeyTyped(evt);
@@ -203,6 +205,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        TxtTelefono.setPreferredSize(new java.awt.Dimension(64, 22));
 
         cbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensajero", "Gestor de Servicios Logísticos", "Gestor de Ventas", "Auxiliar Postal", "Ingeniero en Sistemas" }));
         cbPuesto.setSelectedIndex(-1);
@@ -242,7 +245,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel8)
                                             .addComponent(jLabel6)
                                             .addComponent(TxtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(TxtCorreo))
+                                            .addComponent(TxtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(33, 33, 33))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,7 +300,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 4, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnBuscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -328,7 +331,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtCorreoActionPerformed
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        // Recoger los datos de los campos
+        
         int cedula = Integer.parseInt(TxtCedula.getText());
         String nombre = TxtNombre.getText();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -340,8 +343,7 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
 
         empleado = new Empleado(puesto, salario, telefono, correo, fechaNacimiento, nombre, cedula);
         Empleados.agregarEmpleado(empleado);
-
-        // Mostrar un mensaje de confirmación con los datos del cliente
+       
         JOptionPane.showMessageDialog(this, "Cliente agregado:\n"
                 + "Cédula: " + cedula + "\n"
                 + "Nombre: " + nombre + "\n"
@@ -350,14 +352,13 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 + "Correo: " + correo + "\n"
                 + "Puesto: " + puesto + "\n"
                 + "Salario: " + salario);
-
-        // Limpiar los campos después de agregar el cliente
+        
         TxtCedula.setText("");
         TxtNombre.setText("");
         TxtFechaNacimiento.setText("");
         TxtTelefono.setText("");
         TxtCorreo.setText("");
-        cbPuesto.setSelectedIndex(-1);
+        cbPuesto.setSelectedItem(-1);
         TxtSalario.setText("");
 
 

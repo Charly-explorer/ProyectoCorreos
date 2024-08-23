@@ -6,6 +6,7 @@ package Frame;
 
 import Envios.Envio;
 import Listas.ListaEnvios;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,7 +14,9 @@ import javax.swing.table.DefaultTableModel;
  * @author thyfa
  */
 public class FrmBuscarEnvio extends javax.swing.JDialog {
+
     ListaEnvios envios = ListaEnvios.getInstance();
+
     /**
      * Creates new form BuscarPaquete
      */
@@ -157,6 +160,11 @@ public class FrmBuscarEnvio extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Eliminar3.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/Envios.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -247,40 +255,55 @@ public class FrmBuscarEnvio extends javax.swing.JDialog {
     private void txtNumeroEnvioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroEnvioKeyReleased
         cargar();
     }//GEN-LAST:event_txtNumeroEnvioKeyReleased
-     public static void main(String args[]) {
-         /* Set the Nimbus look and feel */
-         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente deseas eliminar este envio " + envios.getInstance().obtenerEnvio(codigo).getNumeroEnvio() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            envios.getInstance().eliminar(codigo);
+            cargar();
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+        } else {
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-          */
-         try {
-             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                 if ("Nimbus".equals(info.getName())) {
-                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                     break;
-                 }
-             }
-         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-             java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-         }
-         //</editor-fold>
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmBuscarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-         //</editor-fold>
+        //</editor-fold>
 
-         /* Create and display the dialog */
-         java.awt.EventQueue.invokeLater(new Runnable() {
-             public void run() {
-                 FrmBuscarEnvio dialog = new FrmBuscarEnvio(new javax.swing.JFrame(), true);
-                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                     @Override
-                     public void windowClosing(java.awt.event.WindowEvent e) {
-                         System.exit(0);
-                     }
-                 });
-                 dialog.setVisible(true);
-             }
-         });
-     }
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                FrmBuscarEnvio dialog = new FrmBuscarEnvio(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

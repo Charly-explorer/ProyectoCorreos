@@ -6,6 +6,7 @@ package Frame;
 
 import Listas.ListaCliente;
 import Personas.Cliente;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmBuscarCliente extends javax.swing.JDialog {
@@ -263,8 +264,21 @@ public class FrmBuscarCliente extends javax.swing.JDialog {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
         int cedula = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        ListaCliente.getInstance().eliminar(cedula);
-        cargar();
+
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente desea eliminar al cliente " + ListaCliente.getInstance().buscarCliente(cedula).getNombre() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            ListaCliente.getInstance().eliminar(cedula);
+            cargar();
+            JOptionPane.showMessageDialog(this, "Cliente Eliminado:\n" + ListaCliente.getInstance().buscarCliente(cedula).getNombre(), "Eliminacion de Cliente", JOptionPane.ERROR_MESSAGE);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+
+        } else {
+
+        }
+
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 

@@ -1,14 +1,15 @@
 package Frame;
 
+import Listas.ListaEmpleado;
 import Listas.ListaRemitente;
 import Personas.Remitente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmBuscarRemitente extends javax.swing.JDialog {
+
     ListaRemitente Remitentes = ListaRemitente.getInstance();
 
-   
     public FrmBuscarRemitente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -29,11 +30,12 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                 continue;
             }
             Object datos[] = {objeto.getCedula(),
-                objeto.getNombre()};            
+                objeto.getNombre()};
             model.addRow(datos);
         }
         jTable1.setModel(model);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,38 +201,49 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int cedula = Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        ListaRemitente.getInstance().eliminar(cedula);
-        cargar();
+        int respuesta = JOptionPane.showConfirmDialog(null,
+                "¿Realmente desea eliminar al remitente " + ListaRemitente.getInstance().buscar(cedula).getNombre() + " ?",
+                "Confirmar Acción",
+                JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            ListaRemitente.getInstance().eliminar(cedula);
+            cargar();
+            JOptionPane.showMessageDialog(this, "Remitente Eliminado:\n" + ListaRemitente.getInstance().buscar(cedula).getNombre(), "Eliminacion de Remitente", JOptionPane.ERROR_MESSAGE);
+        } else if (respuesta == JOptionPane.NO_OPTION) {
+            
+        } else {
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtRemitenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRemitenteKeyReleased
-       cargar();
+        cargar();
     }//GEN-LAST:event_txtRemitenteKeyReleased
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-       if (jTable1.getSelectedRow()>=0){
-           try{
-               DefaultTableModel tm = (DefaultTableModel)jTable1.getModel();
-               
-               String nombre= String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),1));
-               FrmPaquete.txtRemitente.setText(nombre);
-               String cedula = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(),0));
-               FrmPaquete.txtRemitenteCedula.setText(cedula);
-           
-           } catch(Exception e){
-               
-           }
-           
-       }else{
-           JOptionPane.showMessageDialog(this,"Debe de escoger un remitente","Agregue",JOptionPane.WARNING_MESSAGE);
-       }
-       this.dispose();
+        if (jTable1.getSelectedRow() >= 0) {
+            try {
+                DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
+
+                String nombre = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 1));
+                FrmPaquete.txtRemitente.setText(nombre);
+                String cedula = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 0));
+                FrmPaquete.txtRemitenteCedula.setText(cedula);
+
+            } catch (Exception e) {
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe de escoger un remitente", "Agregue", JOptionPane.WARNING_MESSAGE);
+        }
+        this.dispose();
     }//GEN-LAST:event_btnAddActionPerformed
-public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

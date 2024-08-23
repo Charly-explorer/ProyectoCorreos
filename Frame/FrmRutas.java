@@ -150,12 +150,15 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         jLabel6.setText("Destinos");
 
+        TxtNombre.setPreferredSize(new java.awt.Dimension(64, 23));
         TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNombreKeyTyped(evt);
             }
         });
 
+        TxtDescripcion.setMinimumSize(new java.awt.Dimension(64, 20));
+        TxtDescripcion.setPreferredSize(new java.awt.Dimension(64, 23));
         TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDescripcionKeyTyped(evt);
