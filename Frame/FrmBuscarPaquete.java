@@ -7,6 +7,7 @@ package Frame;
 import static Frame.FrmEnvios.TxtCostoEnvio;
 import static Frame.FrmEnvios.TxtPaquete;
 import Listas.ListaPaquetes;
+import static Paquetes.EnumEstadoPaquete.Almacenado;
 import Paquetes.Paquete;
 import java.util.HashMap;
 import java.util.Map;
@@ -236,16 +237,19 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
 
-        int respuesta = JOptionPane.showConfirmDialog(null,
-                "¿Realmente deseas eliminar este paquete " + ListaPaquetes.getInstance().buscarPaquete(codigo) + " ?",
-                "Confirmar Acción",
-                JOptionPane.YES_NO_OPTION);
-        if (respuesta == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(this, "Paquete Eliminado:\n" + ListaPaquetes.getInstance().buscarPaquete(codigo), "Eliminacion de Paquete", JOptionPane.ERROR_MESSAGE);
-            ListaPaquetes.getInstance().eliminar(codigo);
-            cargar();
-        } else if (respuesta == JOptionPane.NO_OPTION) {
+        if (Paquetes.buscarPaquete(codigo).getEstado() == Almacenado) {
+            int respuesta = JOptionPane.showConfirmDialog(null,
+                    "¿Realmente deseas eliminar este paquete " + ListaPaquetes.getInstance().buscarPaquete(codigo) + " ?",
+                    "Confirmar Acción",
+                    JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(this, "Paquete Eliminado:\n" + ListaPaquetes.getInstance().buscarPaquete(codigo).getCodigo(), "Eliminacion de Paquete", JOptionPane.ERROR_MESSAGE);
+                ListaPaquetes.getInstance().eliminar(codigo);
+                cargar();
+            } else if (respuesta == JOptionPane.NO_OPTION) {
+            }
         } else {
+            JOptionPane.showMessageDialog(this, "Error el paquete:" + ListaPaquetes.getInstance().buscarPaquete(codigo).getCodigo() + " ya no se encuentra almacenado:", "Error al eliminar paquete", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

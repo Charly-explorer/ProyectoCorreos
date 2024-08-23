@@ -198,6 +198,16 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         TxtFechaNacimiento.setPreferredSize(new java.awt.Dimension(64, 23));
+        TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFechaNacimientoActionPerformed(evt);
+            }
+        });
+        TxtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtFechaNacimientoKeyTyped(evt);
+            }
+        });
 
         TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         try {
@@ -415,6 +425,14 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
                 break;
         }
     }//GEN-LAST:event_cbPuestoActionPerformed
+
+    private void TxtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFechaNacimientoActionPerformed
+
+    private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
