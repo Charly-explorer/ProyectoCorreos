@@ -150,15 +150,16 @@ public class FrmRutas extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel6.setText("Destinos");
 
-        TxtNombre.setPreferredSize(new java.awt.Dimension(64, 23));
+        TxtNombre.setMinimumSize(new java.awt.Dimension(64, 23));
+        TxtNombre.setPreferredSize(new java.awt.Dimension(64, 24));
         TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtNombreKeyTyped(evt);
             }
         });
 
-        TxtDescripcion.setMinimumSize(new java.awt.Dimension(64, 20));
-        TxtDescripcion.setPreferredSize(new java.awt.Dimension(64, 23));
+        TxtDescripcion.setMinimumSize(new java.awt.Dimension(64, 23));
+        TxtDescripcion.setPreferredSize(new java.awt.Dimension(64, 24));
         TxtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtDescripcionKeyTyped(evt);
@@ -245,12 +246,12 @@ public class FrmRutas extends javax.swing.JInternalFrame {
                 .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
