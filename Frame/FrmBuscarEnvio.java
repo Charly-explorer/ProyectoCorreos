@@ -264,6 +264,7 @@ public class FrmBuscarEnvio extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Envio Eliminado:\n" + envios.getInstance().obtenerEnvio(codigo).getNumeroEnvio(), "Eliminacion de Envio", JOptionPane.ERROR_MESSAGE);
             envios.getInstance().eliminar(codigo);
             cargar();
         } else if (respuesta == JOptionPane.NO_OPTION) {

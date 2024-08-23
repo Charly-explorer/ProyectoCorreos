@@ -269,9 +269,9 @@ public class FrmBuscarRutas extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Ruta Eliminada:\n" + ListaRuta.getInstance().buscar(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString()).getNombre(), "Eliminacion de ruta", JOptionPane.ERROR_MESSAGE);
             ListaRuta.getInstance().eliminar(codigo);
             cargar();
-            JOptionPane.showMessageDialog(this, "Ruta Eliminada:\n" + ListaRuta.getInstance().buscar(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString()).getNombre(), "Eliminacion de ruta", JOptionPane.ERROR_MESSAGE);
         } else if (respuesta == JOptionPane.NO_OPTION) {
 
         } else {

@@ -241,11 +241,11 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Paquete Eliminado:\n" + ListaPaquetes.getInstance().buscarPaquete(codigo), "Eliminacion de Paquete", JOptionPane.ERROR_MESSAGE);
             ListaPaquetes.getInstance().eliminar(codigo);
             cargar();
-            JOptionPane.showMessageDialog(this, "Paquete Eliminado:\n" + ListaPaquetes.getInstance().buscarPaquete(codigo), "Eliminacion de Paquete", JOptionPane.ERROR_MESSAGE);
         } else if (respuesta == JOptionPane.NO_OPTION) {
-        } else {   
+        } else {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

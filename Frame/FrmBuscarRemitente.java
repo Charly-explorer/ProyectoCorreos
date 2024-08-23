@@ -206,13 +206,13 @@ public class FrmBuscarRemitente extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Remitente Eliminado:\n" + ListaRemitente.getInstance().buscar(cedula).getNombre(), "Eliminacion de Remitente", JOptionPane.ERROR_MESSAGE);
             ListaRemitente.getInstance().eliminar(cedula);
             cargar();
-            JOptionPane.showMessageDialog(this, "Remitente Eliminado:\n" + ListaRemitente.getInstance().buscar(cedula).getNombre(), "Eliminacion de Remitente", JOptionPane.ERROR_MESSAGE);
         } else if (respuesta == JOptionPane.NO_OPTION) {
-            
+
         } else {
-            
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

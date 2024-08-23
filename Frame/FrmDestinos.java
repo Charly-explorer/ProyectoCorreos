@@ -175,9 +175,9 @@ public class FrmDestinos extends javax.swing.JInternalFrame {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(), "Eliminacion de destino", JOptionPane.ERROR_MESSAGE);
             destinos.eliminar(cbDestino.getSelectedItem().toString().toUpperCase());
             cbDestino.setSelectedIndex(-1);
-            JOptionPane.showMessageDialog(this, "Destino Eliminado:\n" + cbDestino.getSelectedItem().toString(), "Eliminacion de destino", JOptionPane.ERROR_MESSAGE);
             actualizarComboBox(cbDestino);
         } else if (respuesta == JOptionPane.NO_OPTION) {
 

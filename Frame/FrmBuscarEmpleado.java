@@ -204,13 +204,13 @@ public class FrmBuscarEmpleado extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Empleado Eliminado:\n" + ListaEmpleado.getInstance().buscarEmpleado(cedula).getNombre(), "Eliminacion de Empleado", JOptionPane.ERROR_MESSAGE);
             ListaEmpleado.getInstance().eliminarEmpleado(cedula);
             cargar();
-            JOptionPane.showMessageDialog(this, "Empleado Eliminado:\n" + ListaEmpleado.getInstance().buscarEmpleado(cedula).getNombre(), "Eliminacion de Empleado", JOptionPane.ERROR_MESSAGE);
         } else if (respuesta == JOptionPane.NO_OPTION) {
-            
+
         } else {
-            
+
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

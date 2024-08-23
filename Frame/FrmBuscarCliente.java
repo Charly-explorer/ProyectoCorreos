@@ -270,9 +270,9 @@ public class FrmBuscarCliente extends javax.swing.JDialog {
                 "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Cliente Eliminado:\n" + ListaCliente.getInstance().buscarCliente(cedula).getNombre(), "Eliminacion de Cliente", JOptionPane.ERROR_MESSAGE);
             ListaCliente.getInstance().eliminar(cedula);
             cargar();
-            JOptionPane.showMessageDialog(this, "Cliente Eliminado:\n" + ListaCliente.getInstance().buscarCliente(cedula).getNombre(), "Eliminacion de Cliente", JOptionPane.ERROR_MESSAGE);
         } else if (respuesta == JOptionPane.NO_OPTION) {
 
         } else {
