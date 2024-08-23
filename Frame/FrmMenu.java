@@ -67,7 +67,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnAdministrarEmpleados.setBackground(new java.awt.Color(204, 204, 255));
         btnAdministrarEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAdministrarEmpleados.setText("Gestion Empleados");
+        btnAdministrarEmpleados.setText("Empleado");
         btnAdministrarEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdministrarEmpleadosActionPerformed(evt);
@@ -77,7 +77,8 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnGestionarClientes.setBackground(new java.awt.Color(204, 204, 255));
         btnGestionarClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionarClientes.setText("Gestionar Clientes");
+        btnGestionarClientes.setText("Cliente");
+        btnGestionarClientes.setActionCommand("Clientes");
         btnGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGestionarClientesActionPerformed(evt);
@@ -87,7 +88,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Agregar Remitente");
+        jButton1.setText("Remitente");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -100,7 +101,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnAdministrarPaquetes.setBackground(new java.awt.Color(204, 204, 255));
         btnAdministrarPaquetes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAdministrarPaquetes.setText("Gestion Paquetes");
+        btnAdministrarPaquetes.setText("Paquete");
         btnAdministrarPaquetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdministrarPaquetesActionPerformed(evt);
@@ -110,7 +111,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnGestionarRutas.setBackground(new java.awt.Color(204, 204, 255));
         btnGestionarRutas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionarRutas.setText("Gestionar Rutas");
+        btnGestionarRutas.setText("Ruta");
         btnGestionarRutas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGestionarRutasActionPerformed(evt);
@@ -120,7 +121,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnGestionarEnvios.setBackground(new java.awt.Color(204, 204, 255));
         btnGestionarEnvios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionarEnvios.setText("Gestionar Envios");
+        btnGestionarEnvios.setText(" Envio");
         btnGestionarEnvios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGestionarEnviosActionPerformed(evt);
@@ -130,7 +131,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnGestionarDestinos.setBackground(new java.awt.Color(204, 204, 255));
         btnGestionarDestinos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnGestionarDestinos.setText("Gestionar Destinos");
+        btnGestionarDestinos.setText(" Destino");
         btnGestionarDestinos.setFocusable(false);
         btnGestionarDestinos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGestionarDestinos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
