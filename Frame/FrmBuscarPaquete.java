@@ -8,6 +8,9 @@ import static Frame.FrmEnvios.TxtCostoEnvio;
 import static Frame.FrmEnvios.TxtPaquete;
 import Listas.ListaPaquetes;
 import static Paquetes.EnumEstadoPaquete.Almacenado;
+import static Paquetes.EnumEstadoPaquete.Cancelado;
+import static Paquetes.EnumEstadoPaquete.Despachado;
+import static Paquetes.EnumEstadoPaquete.Entregado;
 import Paquetes.Paquete;
 import java.util.HashMap;
 import java.util.Map;
@@ -73,6 +76,8 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         btnEliminar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         BtnObtenerPaquete = new javax.swing.JButton();
+        btnCancelado = new javax.swing.JButton();
+        btnEntregado = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -168,6 +173,20 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
             }
         });
 
+        btnCancelado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosPro/cancelado.png"))); // NOI18N
+        btnCancelado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCanceladoActionPerformed(evt);
+            }
+        });
+
+        btnEntregado.setText("jButton2");
+        btnEntregado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntregadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -176,36 +195,54 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEntregado)
+                                .addGap(80, 80, 80)
+                                .addComponent(btnCancelado)
+                                .addGap(79, 79, 79)
+                                .addComponent(btnEliminar)
+                                .addGap(105, 105, 105)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(103, 103, 103)
+                                .addComponent(BtnObtenerPaquete)
+                                .addGap(152, 152, 152))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1075, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(TxtCodigo)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(347, Short.MAX_VALUE)
-                .addComponent(btnEliminar)
-                .addGap(113, 113, 113)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
-                .addComponent(BtnObtenerPaquete)
-                .addGap(301, 301, 301))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtCodigo)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnObtenerPaquete))
-                .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEntregado)
+                        .addGap(71, 71, 71))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar)
+                            .addComponent(btnCancelado, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnObtenerPaquete, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(57, 57, 57))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -279,6 +316,28 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
         }
         this.dispose();
     }//GEN-LAST:event_BtnObtenerPaqueteActionPerformed
+
+    private void btnCanceladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanceladoActionPerformed
+        int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        
+        if (Paquetes.buscarPaquete(codigo).getEstado() == Almacenado) {
+            Paquetes.buscarPaquete(codigo).setEstado(Cancelado);
+        } else {
+            JOptionPane.showMessageDialog(this, "El paquete ya no se encuentra almacenado", "Error de entrega de paquete", JOptionPane.ERROR_MESSAGE);
+        }
+        cargar();
+    }//GEN-LAST:event_btnCanceladoActionPerformed
+
+    private void btnEntregadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntregadoActionPerformed
+        int codigo = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+
+        if (Paquetes.buscarPaquete(codigo).getEstado() == Despachado) {
+            Paquetes.buscarPaquete(codigo).setEstado(Entregado);
+        } else {
+            JOptionPane.showMessageDialog(this, "El paquete aun no ha sido despachado", "Error de entrega de paquete", JOptionPane.ERROR_MESSAGE);
+        }
+        cargar();
+    }//GEN-LAST:event_btnEntregadoActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -317,7 +376,9 @@ public class FrmBuscarPaquete extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton BtnObtenerPaquete;
     private javax.swing.JTextField TxtCodigo;
+    private javax.swing.JButton btnCancelado;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEntregado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
