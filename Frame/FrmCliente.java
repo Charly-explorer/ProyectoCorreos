@@ -26,7 +26,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     }
 
-    public void validarFechaNacimiento(JTextField textField) {
+public void validarFechaNacimiento(JTextField textField) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         try {
 
@@ -172,6 +172,11 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         TxtFechaNacimiento.setPreferredSize(new java.awt.Dimension(64, 22));
+        TxtFechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtFechaNacimientoFocusLost(evt);
+            }
+        });
 
         TxtTelefono.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 1, true));
         try {
@@ -327,6 +332,10 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     private void TxtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtCedulaActionPerformed
+
+    private void TxtFechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoFocusLost
+        validarFechaNacimiento(TxtFechaNacimiento);
+    }//GEN-LAST:event_TxtFechaNacimientoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

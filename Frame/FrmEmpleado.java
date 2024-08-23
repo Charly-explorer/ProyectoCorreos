@@ -198,6 +198,11 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         TxtFechaNacimiento.setPreferredSize(new java.awt.Dimension(64, 23));
+        TxtFechaNacimiento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtFechaNacimientoFocusLost(evt);
+            }
+        });
         TxtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFechaNacimientoActionPerformed(evt);
@@ -433,6 +438,10 @@ public class FrmEmpleado extends javax.swing.JInternalFrame {
     private void TxtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtFechaNacimientoKeyTyped
+
+    private void TxtFechaNacimientoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtFechaNacimientoFocusLost
+        validarFechaNacimiento(TxtFechaNacimiento);
+    }//GEN-LAST:event_TxtFechaNacimientoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
