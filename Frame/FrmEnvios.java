@@ -361,35 +361,34 @@ public class FrmEnvios extends javax.swing.JInternalFrame {
 
         if (Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).getEstado() == EnumEstadoPaquete.Almacenado) {
             Paquetes.buscarPaquete(Integer.parseInt(TxtPaquete.getText())).setEstado(EnumEstadoPaquete.Despachado);
-        } else {
-            JOptionPane.showMessageDialog(this, "El paquete ya ha sido despachado", "Error del registro de paquete", JOptionPane.ERROR_MESSAGE);
-        }
+            String ruta = TxtRuta.getText();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate fechaEnvio = LocalDate.parse(TxtFEnvio.getText(), formatter);
+            LocalDate fechaEntrega = LocalDate.parse(TxtFEntrega.getText(), formatter);
+            double costoEnvio = Double.parseDouble(TxtCostoEnvio.getText());
 
-        String ruta = TxtRuta.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate fechaEnvio = LocalDate.parse(TxtFEnvio.getText(), formatter);
-        LocalDate fechaEntrega = LocalDate.parse(TxtFEntrega.getText(), formatter);
-        double costoEnvio = Double.parseDouble(TxtCostoEnvio.getText());
-
-        envio = new Envio(cliente, paquete, ruta, fechaEnvio, fechaEntrega, costoEnvio);
-        Envios.agregar(envio);
+            envio = new Envio(cliente, paquete, ruta, fechaEnvio, fechaEntrega, costoEnvio);
+            Envios.agregar(envio);
 
 // Mostrar un mensaje de confirmación con los datos del envío
-        JOptionPane.showMessageDialog(this, "Envío agregado:\n"
-                + "Cliente (Cédula): " + cliente.getCedula() + "\n"
-                + "Paquete: " + paquete.getCodigo() + "\n"
-                + "Ruta: " + ruta + "\n"
-                + "Fecha de Envío: " + fechaEnvio + "\n"
-                + "Fecha de Entrega: " + fechaEntrega + "\n"
-                + "Costo de Envío: " + costoEnvio);
+            JOptionPane.showMessageDialog(this, "Envío agregado:\n"
+                    + "Cliente (Cédula): " + cliente.getCedula() + "\n"
+                    + "Paquete: " + paquete.getCodigo() + "\n"
+                    + "Ruta: " + ruta + "\n"
+                    + "Fecha de Envío: " + fechaEnvio + "\n"
+                    + "Fecha de Entrega: " + fechaEntrega + "\n"
+                    + "Costo de Envío: " + costoEnvio);
 
 // Limpiar los campos después de agregar el envío
-        TxtCliente.setText("");
-        TxtPaquete.setText("");
-        TxtRuta.setText("");
-        TxtFEnvio.setText("");
-        TxtFEntrega.setText("");
-        TxtCostoEnvio.setText("");
+            TxtCliente.setText("");
+            TxtPaquete.setText("");
+            TxtRuta.setText("");
+            TxtFEnvio.setText("");
+            TxtFEntrega.setText("");
+            TxtCostoEnvio.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "El paquete ya ha sido despachado o ha fue cancelado", "Error del registro de paquete", JOptionPane.ERROR_MESSAGE);
+        }
 
 
     }//GEN-LAST:event_btnAgregarActionPerformed
